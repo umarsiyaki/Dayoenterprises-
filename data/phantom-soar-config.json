@@ -1,0 +1,11 @@
+{  "version": "1.0",
+  "phantom_url": "(link unavailable)",
+  "auth_token": "YOUR_AUTH_TOKEN",
+  "playbooks": [
+    {
+      "name": "Cloud Security Incident Response",
+      "description": "Automated incident response for cloud security incidents"
+    }
+  ]
+  
+}

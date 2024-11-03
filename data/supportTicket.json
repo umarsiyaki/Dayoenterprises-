@@ -1,0 +1,21 @@
+{
+  "tickets": [
+    {
+      "ticketId": "uuid-1",
+      "userId": "uuid-2",
+      "subject": "Issue with payment",
+      "description": "I was charged twice for my order.",
+      "status": "open",
+      "priority": "high",
+      "assignedTo": "admin-uuid",
+      "timestamp": "2024-10-27T10:10:00Z",
+      "responses": [
+        {
+          "adminId": "admin-uuid",
+          "responseText": "We are reviewing your case.",
+          "timestamp": "2024-10-27T10:15:00Z"
+           }
+         ]
+       }
+     ]
+}

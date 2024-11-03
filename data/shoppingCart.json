@@ -1,0 +1,17 @@
+{
+  "carts": [
+    {
+      "userId": "uuid-1",
+      "items": [
+        {
+          "productId": "uuid-1",
+          "quantity": 2,
+          "addedOn": "2024-10-27T10:05:00Z"
+           }
+         ],
+      "totalPrice": 9.98,
+      "savedItems": ["uuid-3"],
+      "dynamicSuggestions": ["uuid-2", "uuid-4"]
+       }
+     ]
+}

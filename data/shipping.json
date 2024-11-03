@@ -1,0 +1,19 @@
+{
+  "shippingMethods": [
+    {
+      "shippingId": "uuid-1",
+      "methodName": "Standard Shipping",
+      "baseCost": 5.00,
+      "dynamicCost": {
+        "regionBased": {
+          "US": 5.00,
+          "EU": 7.00,
+          "NGN": 8000
+        },
+        "weightBased": { "perKg": 2.00 }
+      },
+      "estimatedDelivery": "3-5 business days",
+      "trackingUrl": "http://oladayoent.com.ng/track/shipping-uuid-1"
+       }
+     ]
+}

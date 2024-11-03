@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "iam_roles": [
+    {
+      "name": "admin-role",
+      "description": "Admin role for IAM"
+    }
+  ],
+  "cognito_config": {
+    "user_pool_id": "your-user-pool-id"
+  },
+  "sso_config": {
+    "sso_instance_arn": "your-sso-instance-arn"
+  }
+  
+}

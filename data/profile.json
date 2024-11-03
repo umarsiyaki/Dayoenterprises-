@@ -1,0 +1,39 @@
+
+   {
+     "users": [
+       {
+         "userId": "uuid-1",
+         "name": "John Doe",
+         "email": "john@example.com",
+         "password": "hashed-password",
+         "role": "customer",
+         "profilePicture": "http://example.com/profiles/john_doe.jpg",
+         "contact": {
+           "phone": "+1234567890",
+           "address": {
+             "street": "123 Main St",
+             "city": "Anytown",
+             "state": "Anystate",
+             "zip": "12345"
+           }
+         },
+         "preferences": {
+           "theme": "dark",
+           "notifications": true,
+           "language": "en-US",
+           "currency": "NGN"
+         },
+         "lastLogin": "2024-10-28T10:05:00Z",
+         "twoFactorEnabled": true,
+         "redirects": {
+           "afterLogin": "/dashboard",
+           "afterPurchase": "/thank-you"
+         },
+         "profileSettings": {
+           "emailVerified": true,
+           "phoneVerified": true,
+           "multiDeviceLogin": true
+         }
+       }
+     ]
+   }

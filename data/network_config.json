@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "vpc_id": "your-vpc-id",
+  "subnets": [
+    {
+      "cidr_block": "10.0.1.0/24",
+      "availability_zone": "your-availability-zone"
+    }
+  ],
+  "route_tables": [
+    {
+      "routes": [
+        {
+          "destination_cidr_block": "10.0.0.0/16",
+          "gateway_id": "your-gateway-id"
+        }
+      ]
+    }
+  ]
+}

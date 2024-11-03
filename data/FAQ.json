@@ -1,0 +1,11 @@
+{
+  "faqs": [
+    {
+      "questionId": "uuid-1",
+      "question": "What is the shelf life of your smoothies?",
+      "answer": "Our smoothies are best consumed within 3 days of purchase.",
+      "relatedQuestions": ["How should I store my smoothie?"],
+      "relatedTopics": ["Product Info", "Storage"]
+       }
+     ]
+}

@@ -1,0 +1,17 @@
+{
+  "transactions": [
+    {
+      "transactionId": "uuid-1",
+      "orderId": "uuid-2",
+      "userId": "uuid-1",
+      "amount": 9.98,
+      "discountApplied": 1.00,
+      "finalAmount": 8.98,
+      "paymentMethod": "Credit Card",
+      "status": "completed",
+      "timestamp": "2024-10-27T10:05:00Z",
+      "refundStatus": "none",
+      "adminNotes": "Processed by cashier John"
+       }
+     ]
+}

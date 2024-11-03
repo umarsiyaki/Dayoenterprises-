@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "productId": "uuid-1",
+      "name": "holandi youghort",
+      "description": "A delicious smoothie with mixed fruits.",
+      "price": 11000.00,
+      "discountPrice": 3.99,
+      "category": "youghort",
+      "vendor": "Holandia",
+      "stockQuantity": 350,
+      "images": [
+           "http://oladayoent.com.ng/images/holandia.jpg"
+         ],
+      "videos": [
+           "http://example.com/videos/smoothieA.mp4"
+         ],
+      "rating": 4.5,
+      "tags": ["healthy", "fruit", "refreshing"],
+      "relatedProducts": ["uuid-2", "uuid-3"],
+      "isFeatured": true,
+      "uploadDate": "2024-10-01T14:20:00Z",
+      "dynamicPricing": {
+        "bulkDiscount": [
+          { "minQuantity": 10, "discountPercentage": 10 },
+          { "minQuantity": 20, "discountPercentage": 15 }
+           ],
+        "seasonalDiscount": { "holidaySeason": 25 }
+      }
+       }
+     ]
+}

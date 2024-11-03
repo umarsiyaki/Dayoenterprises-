@@ -1,0 +1,26 @@
+{
+"version": "1.0",
+"kms_key_id": "your-kms-key-id",
+"encryption_algorithm": "AES-256",
+"cloudhsm_arn": "your-cloudhsm-arn",
+"s3_buckets": [
+{
+"bucket_name": "your-s3-bucket"
+}
+],
+"ebs_volumes": [
+{
+"volume_id": "your-ebs-volume-id"
+}
+],
+"rds_instances": [
+{
+"instance_id": "your-rds-instance-id"
+}
+],
+"lambda_functions": [
+{
+"function_name": "your-lambda-function"
+}
+]
+}

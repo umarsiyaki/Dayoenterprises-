@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "categoryId": "uuid-1",
+      "name": "energy drinks",
+      "description": "Refreshing smoothies made with fresh ingredients.",
+      "products": ["uuid-1", "uuid-2"],
+      "subcategories": ["Fruit drinks", " colas"],
+      "imageUrl": "http://example.com/images/smoothies-category.jpg",
+      "relatedPromotions": ["PROMO-10OFF"],
+      "sortingOptions": ["Popularity", "Price Low to High", "Newest"]
+       }
+     ]
+}

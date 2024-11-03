@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "splunk_url": "(link unavailable)",
+  "auth_token": "YOUR_AUTH_TOKEN",
+  "indexes": [
+    {
+      "name": "cloud_security",
+      "description": "Cloud security logs and network traffic"
+    }
+  ]
+}

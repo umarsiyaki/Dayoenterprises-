@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "atp_model": "atp-model",
+  "atp_rules": [
+    {
+      "name": "atp-rule",
+      "description": "ATP rule for anomaly detection"
+    }
+  ]
+}

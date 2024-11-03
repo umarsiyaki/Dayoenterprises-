@@ -1,0 +1,19 @@
+{
+  "settings": {
+    "siteName": "oladayoenterprises",
+    "logoUrl": "http://oladayoent.com/images/logo.png",
+    "contactEmail": "support@oladayoent.com.ng",
+    "theme": ["light", "darkmode"],
+    "maintenanceMode": false,
+    "allowedFileTypes": ["jpg", "png", "pdf", "zip", "gif", "mp3", "mp4", "txt"],
+    "maxUploadSize": "45MB",
+    "roleBasedAccess": {
+      "admin": ["view", "edit", "delete", "update", "download"],
+      "cashier": ["view", "process", "download"],
+      "customer": ["view, download"]
+    },
+    "maintenanceSchedule": [
+      { "start": "2024-12-24T23:00:00Z", "end": "2024-12-25T03:00:00Z" }
+       ]
+  }
+}
