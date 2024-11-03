@@ -1,0 +1,258 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const orderDetailModal = document.getElementById('orderDetailModal');
+    const closeOrderDetail = document.getElementById('closeOrderDetail');
+    const orderTableBody = document.querySelector('#orderTable tbody');
+
+    // Open Modal to View Order Details
+    closeOrderDetail.onclick = () => {
+        orderDetailModal.style.display = 'none';
+    };
+
+    // Fetch and display orders
+    async function fetchOrders() {
+        const response = await fetch('/API/orders');
+        const orders = await response.json();
+        populateOrderTable(orders);
+    }
+
+    // Populate order table with fetched orders
+    function populateOrderTable(orders) {
+        orderTableBody.innerHTML = '';
+        orders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="checkbox" class="order-checkbox" value="${order.id}"></td>
+                <td>${order.id}</td>
+                <td>${order.customerName}</td>
+                <td>${order.store}</td>
+                <td>${order.vendor}</td>
+                <td>${order.totalAmount}</td>
+                <td>${order.status}</td>
+                <td>${new Date(order.orderDate).toLocaleDateString()}</td>
+                <td>${order.paymentMethod}</td>
+                <td>${order.shippingDetails}</td>
+                <td>
+                    <button onclick="viewOrderDetails(${order.id})">View</button>
+                </td>
+            `;
+            orderTableBody.appendChild(row);
+        });
+    }
+
+    // View order details
+    async function viewOrderDetails(orderId) {
+        const response = await fetch(`/API/orders/${orderId}`);
+        const orderDetails = await response.json();
+        const detailsDiv = document.getElementById('orderDetails');
+
+        detailsDiv.innerHTML = `
+            <p><strong>Order ID:</strong> ${orderDetails.id}</p>
+            <p><strong>Customer Name:</strong> ${orderDetails.customerName}</p>
+            <p><strong>Store:</strong> ${orderDetails.store}</p>
+            <p><strong>Vendor:</strong> ${orderDetails.vendor}</p>
+            <p><strong>Total Amount:</strong> ${orderDetails.totalAmount}</p>
+            <p><strong>Status:</strong> ${orderDetails.status}</p>
+            <p><strong>Order Date:</strong> ${new Date(orderDetails.orderDate).toLocaleDateString()}</p>
+            <p><strong>Payment Method:</strong> ${orderDetails.paymentMethod}</p>
+            <p><strong>Shipping Details:</strong> ${orderDetails.shippingDetails}</p>
+            <p><strong>Items:</strong></p>
+            <ul>
+                ${orderDetails.items.map(item => `<li>${item.productName} - Quantity: ${item.quantity}</li>`).join('')}
+            </ul>
+        `;
+        orderDetailModal.style.display = 'block';
+    }
+
+    // Filter orders based on search and filters
+    function filterOrders() {
+        const searchQuery = document.getElementById('orderSearch').value.toLowerCase();
+        const startDate = new Date(document.getElementById('startDate').value);
+        const endDate = new Date(document.getElementById('endDate').value);
+        const status = document.getElementById('orderStatus').value;
+
+        // Logic for filtering orders from the fetched list
+        const filteredOrders = orders.filter(order => {
+            const matchesSearch = order.customerName.toLowerCase().includes(searchQuery);
+            const isInDateRange = (startDate && order.orderDate < startDate) || (endDate && order.orderDate > endDate);
+            const matchesStatus = status === 'all' || order.status === status;
+            return matchesSearch && !isInDateRange && matchesStatus;
+        });
+
+        populateOrderTable(filteredOrders);
+    }
+
+    // Cancel selected orders
+    function cancelSelectedOrders() {
+        const selectedCheckboxes = document.querySelectorAll('.order-checkbox:checked');
+        const idsToCancel = Array.from(selectedCheckboxes).map(cb => cb.value);
+        if (idsToCancel.length === 0) {
+            alert('No orders selected for cancellation.');
+            return;
+        }
+
+        const confirmation = confirm('Are you sure you want to cancel selected orders?');
+        if (confirmation) {
+            idsToCancel.forEach(id => cancelOrder(id));
+        }
+    }
+
+    // Ship selected orders
+    function shipSelectedOrders() {
+        const selectedCheckboxes = document.querySelectorAll('.order-checkbox:checked');
+        const idsToShip = Array.from(selectedCheckboxes).map(cb => cb.value);
+        if (idsToShip.length === 0) {
+            alert('No orders selected for shipping.');
+            return;
+        }
+
+        const confirmation = confirm('Are you sure you want to ship selected orders?');
+        if (confirmation) {
+            idsToShip.forEach(id => shipOrder(id));
+        }
+    }
+
+    // Cancel an order
+    async function cancelOrder(id) {
+        const response = await fetch(`/API/orders/${id}/cancel`, {
+            method: 'POST'
+        });
+        if (response.ok) {
+            fetchOrders();
+        }
+    }
+
+    // Ship an order
+    async function shipOrder(id) {
+        const response = await fetch(`/API/orders/${id}/ship`, {
+            method: 'POST'
+        });
+        if (response.ok) {
+            fetchOrders();
+        }
+    }
+
+    // Toggle select all orders
+    function toggleSelectAllOrders() {
+        const selectAllCheckbox = document.getElementById('selectAllOrders');
+        const orderCheckboxes = document.querySelectorAll('.order-checkbox');
+        orderCheckboxes.forEach(cb => cb.checked = selectAllCheckbox.checked);
+    }
+
+    // Export orders (to be implemented)
+    document.getElementById('exportOrders').onclick 
+= function() {
+        alert('Export functionality is not implemented yet.');
+    };
+
+    // Fetch orders on page load
+    fetchOrders();
+});
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="product-management.html">Product Management</a></li>
+                <li><a href="order-management.html">Order Management</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="order-management">
+            <h1>Order Management</h1>
+
+            <!-- Search and Filter -->
+            <div id="search-filter">
+                <input type="text" id="orderSearch" placeholder="Search orders...">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+                <select id="orderStatus">
+                    <option value="all">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="completed">Completed</option>
+                    <option value="canceled">Canceled</option>
+                </select>
+                <button onclick="filterOrders()">Filter</button>
+            </div>
+
+            <!-- Bulk Actions -->
+            <div id="bulk-actions">
+                <button id="cancelSelected" onclick="cancelSelectedOrders()">Cancel Selected</button>
+                <button id="shipSelected" onclick="shipSelectedOrders()">Ship Selected</button>
+            </div>
+
+            <!-- Order Table -->
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllOrders" onclick="toggleSelectAllOrders()"></th>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Store</th>
+                        <th>Vendor</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Order Date</th>
+                        <th>Payment Method</th>
+                        <th>Shipping Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Order Rows go here -->
+                </tbody>
+            </table>
+
+            <!-- Order Detail Modal -->
+            <div id="orderDetailModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeOrderDetail">&times;</span>
+                    <h2>Order Details</h2>
+                    <div id="orderDetails"></div>
+                </div>
+            </div>
+
+            <!-- Export Orders Button -->
+            <button id="exportOrders" class="btn">Export Orders</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 oladayo enterprises</p>
+
+    </footer>
+
+    <script src="js/order-management.js"></script>
+</body>
+</html>
+
+/* Keep previous CSS styles */
+
+#bulk-actions {
+    margin-bottom: 20px;
+}
+
+#bulk-actions button {
+    margin-right: 10px;
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+/* Add more specific styl
+es as needed */
+

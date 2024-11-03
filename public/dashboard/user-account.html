@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/userac.css">
+    <title>User Account</title>
+</head>
+<body>
+    <header>
+        <h1>User Account</h1>
+        <nav>
+            <a href="cart.html">Cart</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="order_history.html">Order History</a>
+            <a href="saved_items.html">Saved Items</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Account Information</h2>
+            <form id="account-info-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="profile-pic">Profile Picture:</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+
+                <button type="submit">Update Information</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Change Password</h2>
+            <form id="change-password-form">
+                <label for="current-password">Current Password:</label>
+                <input type="password" id="current-password" name="current-password" required>
+
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password" required>
+
+                <label for="confirm-password">Confirm New Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Shipping Addresses</h2>
+            <div id="addresses"></div>
+            <button id="add-address-btn">Add New Address</button>
+        </section>
+
+        <section>
+            <h2>Billing Information</h2>
+            <form id="billing-info-form">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" required>
+                
+                <label for="expiry">Expiry Date:</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <button type="submit">Update Billing Information</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Account Security</h2>
+            <form id="security-info-form">
+                <label for="2fa">Enable Two-Factor Authentication:</label>
+                <input type="checkbox" id="2fa" name="2fa">
+
+                <label for="security-questions">Security Questions:</label>
+                <select id="security-questions" name="security-questions">
+                    <option value="pet-name">What is the name of your first pet?</option>
+                    <option value="birth-city">What city were you born in?</option>
+                </select>
+
+                <button type="submit">Update Security Settings</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Account Activity</h2>
+            <div id="activity-log"></div>
+        </section>
+
+        <section>
+            <h2>Account Deletion</h2>
+            <button id="delete-account-btn">Delete Account</button>
+        </section>
+
+        <section>
+            <h2>Notification Preferences</h2>
+            <form id="notification-preferences-form">
+                <label>
+                    <input type="checkbox" id="email-notifications" name="email-notifications" checked>
+                    Email Notifications
+                </label>
+                <label>
+                    <input type="checkbox" id="sms-notifications" name="sms-notifications">
+                    SMS Notifications
+                </label>
+                <button type="submit">Update Preferences</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Account Verification</h2>
+            <button id="verify-email-btn">Verify Email</button>
+        </section>
+
+        <section>
+            <h2>Saved Payment Methods</h2>
+            <div id="payment-methods"></div>
+            <button id="add-payment-btn">Add New Payment Method</button>
+        </section>
+
+        <section>
+            <h2>Account Roles</h2>
+            <div id="user-role">User Role: <span>Customer</span></div>
+        </section>
+
+        <section>
+            <h2>Account Customization</h2>
+            <button id="dark-mode-toggle">Toggle Dark Mode</button>
+            <button id="export-data-btn">Export Account Data</button>
+        </section>
+
+        <section>
+            <h2>Last Login Info</h2>
+            <div id="last-login">Last Login: <span>2024-10-20 14:35</span></div>
+        </section>
+
+        <section>
+            <h2>Mobile Number Verification</h2>
+            <button id="verify-phone-btn">Verify Mobile Number</button>
+        </section>
+
+        <section>
+            <h2>Referral Program</h2>
+            <button id="refer-friends-btn">Refer Friends</button>
+        </section>
+
+        <section>
+            <h2>Manage Subscriptions</h2>
+            <button id="manage-subscriptions-btn">Manage Subscriptions</button>
+        </section>
+
+        <section>
+            <h2>Account Feedback</h2>
+            <form id="feedback-form">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/user_account.js"></script>
+</body>
+</html>

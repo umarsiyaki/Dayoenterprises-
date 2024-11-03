@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    <!-- CSS -->
+.todo-list {
+  width: 30%;
+  float: left;
+}
+
+.calendar {
+  width: 70%;
+  float: right;
+}
+  </style>
+</head>
+
+<body>
+  <!-- Calendar Container -->
+<div class="calendar-container">
+  <!-- Calendar Header -->
+  <div class="calendar-header">
+    <h2 id="month-year"></h2>
+    <button id="prev-month">Prev</button>
+    <button id="next-month">Next</button>
+  </div>
+
+  <!-- Calendar Body -->
+  <div class="calendar-body">
+    <!-- Day cells will be generated dynamically -->
+  </div>
+
+  <!-- Calendar Footer -->
+  <div class="calendar-footer">
+    <button id="today-btn">Today</button>
+    <button id="switch-view-btn">Switch View</button>
+  </div>
+</div>
+<!-- Todo list container -->
+<div class="todo-list-container">
+  <!-- Todo list header -->
+  <div class="todo-list-header">
+    <h2>Todo List</h2>
+    <button id="add-todo-btn">Add Todo</button>
+  </div>
+<form id="todo-form">
+  <input type="text" id="todo-text" placeholder="Enter Todo">
+  <button id="add-todo-btn">Add Todo</button>
+</form>
+
+<ul id="todo-list"></ul>
+
+  <!-- Todo list body -->
+  <ul id="todo-list">
+    <!-- Todo items will be generated dynamically -->
+  </ul>
+  
+  <div class="container">
+  <div class="todo-list"></div>
+  <div class="calendar"></div>
+</div>
+
+</div>
+</body>
+<script src="js/calendar.js"></script>
+<script src="js/todo.js"></script>
+</html>

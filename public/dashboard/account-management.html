@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="cashier-dashboard.html">Dashboard</a></li>
+                <li><a href="#">Account Management</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="account-management">
+            <h1>Account Management</h1>
+            
+            <!-- Filter by Account Type -->
+            <div class="filter-section">
+                <label for="accountTypeFilter">Filter by Account Type:</label>
+                <select id="accountTypeFilter" onchange="filterAccounts()">
+                    <option value="all">All</option>
+                    <option value="customer">Customer</option>
+                    <option value="user">User</option>
+                    <option value="cash">Cash/Moderator</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <!-- Account Table -->
+            <table id="account-table">
+                <thead>
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Account Type</th>
+                        <th>Balance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="account-list">
+                    <!-- Dynamic rows will be inserted here via JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Oladayo Enterprises</p>
+    </footer>
+
+    <script src="public/dashboard/js/accountManagement.js"></script>
+</body>
+</html>

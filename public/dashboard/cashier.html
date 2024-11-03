@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Dashboard</title>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    
+   <!-- Include Firebase SDK -->
+   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"></script>
+
+</head>
+<body>
+    
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Oladayo enterprises Logo">
+                    <h2>Oladayo enterprises</h2>
+                </div>
+                <button class="toggle-sidebar-btn">&times;</button>
+            </div>
+         
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="customers.html">Customers</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h1>Cashier Dashboard</h1>
+            <!-- Dashboard Cards -->
+            <div class="dashboard-card">
+                <h2>Total Sales</h2>
+                <p>NGN 10,000</p>
+            </div>
+            <div class="dashboard-card">
+                <h2>Total Customers</h2>
+                <p>100</p>
+            </div>
+            <div class="dashboard-card">
+                <h2>Inventory Levels</h2>
+                <p>500</p>
+            </div>
+            <!-- Recent Sales Table -->
+            <table id="recent-sales">
+                <caption>Recent Sales</caption>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023-01-01</td>
+                        <td>John Doe</td>
+                        <td>Product 1</td>
+                        <td>NGN 2,000</td>
+                    </tr>
+                    <tr>
+                        <td>2023-01-02</td>
+                        <td>Jane Doe</td>
+                        <td>Product 2</td>
+                        <td>NGN 3,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Low Stock Items Table -->
+            <table id="low-stock">
+                <caption>Low Stock Items</caption>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product 3</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Product 4</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Additional Features -->
+            <div class="dashboard-card">
+                <h2>Top Selling Products</h2>
+                <ul>
+                    <li>Product 1 (20 units)</li>
+                    <li>Product 2 (15 units)</li>
+                    <li>Product 3 (10 units)</li>
+                </ul>
+            </div>
+            <div class="dashboard-card">
+                <h2>Customer Loyalty Program</h2>
+                <p>100 customers enrolled</p>
+                <p>500 points redeemed</p>
+            </div>
+            <table id="staff-performance">
+                <caption>Staff Performance</caption>
+                <thead>
+                    <tr>
+                        <th>Staff</th>
+                        <th>Sales</th>
+                        <th>Commission</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>NGN 5,000</td>
+                        <td>NGN 1,000</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>NGN 3,000</td>
+                        <td>NGN 600</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="dashboard-card">
+                <h2>Notifications</h2>
+                <ul>
+                    <li>New stock arrival: Product 5</li>
+                    <li>Low stock warning: Product 3</li>
+                    <li>Customer birthday: John Doe</li>
+                </ul>
+            </div>
+            <div class="dashboard-card">
+                <h2>Goal Tracker</h2>
+                <p>Daily sales target: NGN 10,000</p>
+                <progress value="50" max="100"></progress>
+            </div>
+      
+            <!-- Invoice and Receipt Section -->
+            <div class="dashboard-card">
+                <h2>Generate Invoice</h2>
+                <form id="invoice-form">
+                    <label for="customer-name">Customer Name:</label>
+                    <input type="text" id="customer-name" name="customer-name"><br><br>
+                    <label for="invoice-date">Invoice Date:</label>
+                    <input type="date" id="invoice-date" name="invoice-date"><br><br>
+                    <label for="invoice-items">Invoice Items:</label>
+                    <textarea id="invoice-items" name="invoice-items"></textarea><br><br>
+                    <label for="invoice-total">Invoice Total:</label>
+                    <input type="number" id="invoice-total" name="invoice-total"><br><br>
+                    <button id="generate-invoice">Generate Invoice</button>
+                </form>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Invoice Preview</h2>
+                <div id="invoice-preview">
+                    <!-- Invoice will be displayed here -->
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Generate Receipt</h2>
+                <form id="receipt-form">
+                    <label for="receipt-date">Receipt Date:</label>
+                    <input type="date" id="receipt-date" name="receipt-date"><br><br>
+                    <label for="receipt-items">Receipt Items:</label>
+                    <textarea id="receipt-items" name="receipt-items"></textarea><br><br>
+                    <label for="receipt-total">Receipt Total:</label>
+                    <input type="number" id="receipt-total" name="receipt-total"><br><br>
+                    <button id="generate-receipt">Generate Receipt</button>
+                </form>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Receipt Preview</h2>
+                <div id="receipt-preview">
+                    <!-- Receipt will be displayed here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Oladayo enterprises</p>
+    </footer>
+    <script>
+        const invoiceForm = document.getElementById('invoice-form');
+        const receiptForm = document.getElementById('receipt-form');
+
+        invoiceForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const customerName = document.getElementById('customer-name').value;
+            const invoiceDate = document.getElementById('invoice-date').value;
+            const invoiceItems = document.getElementById('invoice-items').value;
+            const invoiceTotal = document.getElementById('invoice-total').value;
+
+            const invoicePreview = document.getElementById('invoice-preview');
+            invoicePreview.innerHTML = `
+                <h2>Invoice</h2>
+                <p>Customer Name: ${customerName}</p>
+                <p>Invoice Date: ${invoiceDate}</p>
+                <p>Invoice Items: ${invoiceItems}</p>
+                <p>Invoice Total: ${invoiceTotal}</p>
+            `;
+        });
+
+        receiptForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const receiptDate = document.getElementById('receipt-date').value;
+            const receiptItems = document.getElementById('receipt-items').value;
+            const receiptTotal = document.getElementById('receipt-total').value;
+
+            const receiptPreview = document.getElementById('receipt-preview');
+            receiptPreview.innerHTML = `
+                <h2>Receipt</h2>
+                <p>Receipt Date: ${receiptDate}</p>
+                <p>Receipt Items: ${receiptItems}</p>
+                <p>Receipt Total: ${receiptTotal}</p>
+            `;
+        });
+    </script>
+
+    <!-- External Script Fallback -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js" onerror="this.src='assets/fullcalendar/main.min.js';"></script>
+
+    <!-- JavaScript for AJAX and Modal Functionality -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+    <!-- Include necessary scripts -->
+    <script src="js/scripts.js"></script>
+    <script src="js/ajax.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css" rel="stylesheet" onerror="this.href='assets/fullcalendar/main.min.css';">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js" onerror="this.src='assets/fullcalendar/main.min.js';"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.umd.js"></script>
+    
+   <!-- Include Firebase SDK -->
+   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"></script>
+   
+   <script src="/socket.io/socket.io.js"></script>
+   <script src="../js/xlsx.js"></script>
+   <script src="../js/metwork.js"></script>
+   <script src="../js/productpage.js"></script>
+   <script src="../js/index.js"></script>
+   <script src="../js/profile.js"></script>
+   <script src="../js/cart.js.js"></script>
+   <script src="js/ajax.js"></script>
+    <script src="js/chart.js.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

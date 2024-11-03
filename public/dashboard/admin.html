@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oladayo Enterprises</title>
+    <meta name="description" content="Oladayo Enterprises description">
+    <meta name="keywords" content="Oladayo Enterprises keywords">
+    
+    <!-- Favicon -->
+  <link rel="icon" href="..../images/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="(link unavailable)">
+    <link rel="preconnect" href="(link unavailable)" crossorigin>
+    <link href="(link unavailable)" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="(link unavailable)" rel="stylesheet">
+    <link href="(link unavailable)" rel="stylesheet">
+    
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Template Stylesheet -->
+   
+    
+
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/nav.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <nav>
+      <ul>
+        <li><a href="../index.html" class="active">Dashboard</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="order.html">Orders</a></li>
+        <li><a href="inventory-report.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="signin.html" id="logout">Logout</a></li>
+        <li><a href="message.htm">Chat</a></li>
+        <li><a href="#">Video Conference</a></li>
+        <li><a href="file.html">File Sharing</a></li>
+        <li><a href="#">Task Management</a></li>
+<li><a href="#">Calendar</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Calendar</a></li>
+      </ul>
+    </nav>
+        <div class="main-content">
+            <!-- Navbar -->
+            <header class="navbar">
+                <div class="navbar-left">
+                    <button class="toggle-sidebar-btn">&#9776;</button>
+                    <h1>Admin Dashboard</h1>
+                </div>
+                <div class="navbar-middle">
+                    <input type="text" class="search-bar" placeholder="Search...">
+                </div>
+                <!-- Notifications and Messages Dropdown Menu -->
+         <div class="nav-item         dropdown">
+   <button class="dropbtn">Messages <span class="badge">5</span></button><!-- number of recieved messages will be arranged in the span containing badge class and message string with dynamic message link will be arranged in th dropdown-content-->
+    <div class="dropdown-content">
+      <a href="#">New Message 1</a>
+      <a href="#">New Message 2</a>
+      <a href="#">New Message 3</a>
+      <a href="#">View All Messages</a>
+    </div>
+  </div>
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Notifications <span class="badge">8</span></button>
+    <div class="dropdown-content" id="notificationSectionId">
+      <a href="#">Notification 1</a>
+      <a href="#">Notification 2</a>
+      <a href="#">Notification 3</a>
+      <a href="#">View All Notifications</a>
+    </div>
+  </div>
+  
+ <div class="nav-item dropdown">
+     <button class="dropbtn>Profile <i class="fas fa-user-circle"></i></button>
+     <div class="dropdown-content">
+                            <a href="profile.html">Profile Settings</a>
+                            <button id="login.html>Login</button>                        </div>
+                    </div>
+                </div>
+            </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <h1>Dashboard</h1>
+            <!-- Product Stats Card -->
+            <div class="card">
+                <h2>Product Stats</h2>
+                <p>Total Products: <span id="total-products">0</span></p>
+                <p>Out of Stock: <span id="out-of-stock">0</span></p>
+                <p>Low Stock: <span id="low-stock">0</span></p>
+            </div>
+            <!-- User Stats Card -->
+            <div class="card">
+                <h2>User Stats</h2>
+                <p>Total Users: <span id="total-users">0</span></p>
+                <p>Active Users: <span id="active-users">0</span></p>
+                <p>Pending Users: <span id="pending-users">0</span></p>
+            </div>
+        <!-- Order Stats Card -->
+        <div class="card">
+            <h2>Order Stats</h2>
+            <p>Total Orders: <span id="total-orders">0</span></p>
+            <p>Pending Orders: <span id="pending-orders">0</span></p>
+            <p>Completed Orders: <span id="completed-orders">0</span></p>
+        </div>
+        <!-- Collaboration Tools -->
+        <div class="collaboration-tools">
+            <button id="dashboard-chat-btn">Chat</button>
+            <button id="dashboard-video-btn">Video Conference</button>
+            <button id="dashboard-file-btn">File Sharing</button>
+        </div>
+    </section>
+    <!-- Products Section -->
+    <section id="products">
+        <h1>Products</h1>
+        <button id="add-product-btn">Add Product</button>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="product-tbody"></tbody>
+        </table>
+    </section>
+    <!-- Order History Section -->
+    <section class="order-history">
+        <h2>Order History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Name</th>
+                    <th>Tracking ID</th>
+                    <th>Total Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#00123</td>
+                    <td>John Doe</td>
+                    <td>TRACK123</td>
+                    <td>₦150,000</td>
+                    <td>
+                        <button>Print Receipt</button>
+                        <button>Confirm</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <!-- Cashier Performance Section -->
+    <section class="cashier-performance">
+        <h2>Cashier Performance</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Store</th>
+                    <th>Time</th>
+                    <th>Tasks Done</th>
+                    <th>Contact</th>
+                    <th>Confirm Task</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jane Doe</td>
+                    <td>admin</td>
+                    <td>Store A</td>
+                    <td>12:30 PM</td>
+                    <td>Payment Confirmation</td>
+                    <td><button id="view-message">Message</button></td>
+                    <td><button id="confirm-payment">Confirm</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <!-- Top Selling Products Section -->
+    <section class="top-selling-products">
+        <h2>Top Selling Products</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Vendor</th>
+                    <th>Category</th>
+                    <th>Total Sales</th>
+                    <th>Link</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product 1</td>
+                    <td>Vendor A</td>
+                    <td>₦500,000</td>
+                    <td><a href="#">View Product</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <!-- Cashier Performance Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Cashier Performance</h6>
+                <a href="#">View More</a>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded p-4">
+                        <i class="fa fa-user fa-3x text-primary"></i>
+                        <h6 class="mb-2">Total Cashiers</h6>
+                        <p class="mb-0">123</p>
+                    </div>
+                </div>
+             
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded p-4">
+                        <i class="fa fa-check fa-3x text-success"></i>
+                        <h6 class="mb-2">Confirmed Payments</h6>
+                        <p class="mb-0">456</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded p-4">
+                        <i class="fa fa-times fa-3x text-danger"></i>
+                        <h6 class="mb-2">Declined Payments</h6>
+                        <p class="mb-0">789</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded p-4">
+                        <i class="fa fa-clock fa-3x text-warning"></i>
+                        <h6 class="mb-2">Pending Payments</h6>
+                        <p class="mb-0">1011</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cashier Performance End -->
+    <!-- Sales Report Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Sales Report</h6>
+                <a href="#">View More</a>
+            </div>
+            <canvas id="sales-chart"></canvas>
+        </div>
+    </div>
+    <!-- Sales Report End -->
+    <!-- Stock Levels Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Stock Levels</h6>
+                <a href="#">View More</a>
+            </div>
+            <canvas id="stock-chart"></canvas>
+        </div>
+    </div>
+    <!-- Stock Levels End -->
+</main>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                2024 Oladayo Enterprises. All rights reserved.
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- JavaScript Files -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/charts.js"></script>
+</body>
+</html>

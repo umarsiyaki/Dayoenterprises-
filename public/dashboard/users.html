@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>User Management</h1>
+    <!-- Users Section -->
+    <section id="users" style="display:block;">
+      <h1>Users</h1>
+      <button id="add-user-btn">Add User</button>
+      <select id="user-role">
+        <option value="admin">Admin</option>
+        <option value="cashier">Cashier</option>
+        <option value="user">User</option>
+      </select>
+      <table id="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Middle Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>NIN Number</th>
+            <th>Profile Picture</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="user-tbody">
+        </tbody>
+      </table>
+    </section>
+
+    <form id="create-user-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="role">Role:</label>
+        <select id="role" name="role">
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select><br><br>
+        <button id="create-user-btn">Create User</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

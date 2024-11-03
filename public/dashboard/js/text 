@@ -1,0 +1,10 @@
+
+
+
+[10/21, 15:43] Meta AI: Here are the additional server settings:
+
+
+
+*File Name:* `server.config.js` or `config.js`
+
+Note: This file contains sensitive information and should not be committed to version control. Consider using environment variables or a secrets manager instead.

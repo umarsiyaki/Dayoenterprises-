@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Moderation Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header>
+        <h1>User Moderation Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#userManagement" id="navUserManagement">User Management</a></li>
+                <li><a href="#contentModeration" id="navContentModeration">Content Moderation</a></li>
+                <li><a href="#userSupport" id="navUserSupport">User Support</a></li>
+                <li><a href="#settings" id="navSettings">Settings</a></li>
+                <li><a href="#messaging" id="navMessaging">Messaging</a></li>
+                <li><a href="#productRecommendations" id="navProductRecommendations">Product Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="userManagement">
+            <h2>User Management</h2>
+            <div id="userList" class="card">
+                <h3>User List</h3>
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User data will be injected here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contentModeration">
+            <h2>Content Moderation</h2>
+            <div id="flaggedContent" class="card">
+                <h3>Flagged Content</h3>
+                <table id="contentTable">
+                    <thead>
+                        <tr>
+                            <th>Content ID</th>
+                            <th>User ID</th>
+                            <th>Content Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Flagged content data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="userSupport">
+            <h2>User Support</h2>
+            <div id="supportTickets" class="card">
+                <h3>Support Tickets</h3>
+                <table id="supportTable">
+                    <thead>
+                        <tr>
+                            <th>Ticket ID</th>
+                            <th>User ID</th>
+                            <th>Issue Description</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Support ticket data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="messaging">
+            <h2>Messaging</h2>
+            <div class="card">
+                <h3>User Messages</h3>
+                <div id="messageList">
+                    <!-- Messages will be dynamically loaded here -->
+                </div>
+                <form id="sendMessageForm">
+                    <label for="messageContent">Message:</label>
+                    <textarea id="messageContent" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="productRecommendations">
+            <h2>Product Recommendations</h2>
+            <div id="recommendationList" class="card">
+                <h3>Recommendations</h3>
+                <table id="recommendationTable">
+                    <thead>
+                        <tr>
+                            <th>Recommendation ID</th>
+                            <th>User ID</th>
+                            <th>Product</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Recommendation data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="settings">
+            <h2>Settings</h2>
+            <div class="card">
+                <h3>Moderation Settings</h3>
+                <form id="moderationSettingsForm">
+                    <label for="contentThreshold">Content Flag Threshold:</label>
+                    <input type="number" id="contentThreshold" name="contentThreshold" required>
+                    <button type="submit" id="saveSettingsBtn">Save Settings</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-commerce Platform - User Moderation Team</p>
+    </footer>
+    <script src="js/admin-dashboard.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+ Enhancements (customers.html)**
+
+```html
+<!-- Customer Segmentation Section -->
+<section id="customerSegmentation">
+    <h2>Customer Segmentation</h2>
+    <div id="segmentFilters">
+        <label for="segmentType">Select Segment:</label>
+        <select id="segmentType">
+            <option value="frequent">Frequent Buyers</option>
+            <option value="highSpender">High Spenders</option>
+        </select>
+        <button onclick="filterCustomersBySegment()">Filter</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Total Purchases</th>
+            </tr>
+        </thead>
+        <tbody id="segmentedCustomerList">
+            <!-- Segmented customer rows -->
+        </tbody>
+    </table>
+</section>
+
+<!-- Customer Feedback Modal -->
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+        <h2>Customer Feedback</h2>
+        <form id="feedbackForm">
+            <label for="feedbackCustomer">Customer:</label>
+            <select id="feedbackCustomer"></select>
+            <label for="feedbackText">Feedback:</label>
+            <textarea id="feedbackText" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+Index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oladayo Enterprises - Leading supplier of top-quality beverages">
+    <title>Oladayo Enterprises</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">Oladayo Enterprises</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+                <div class="search-cart">
+                    <input type="text" placeholder="Search products...">
+                    <a href="#" class="cart-icon">Cart (0)</a>
+                </div>
+                <div class="hamburger-menu">
+                    <!-- For Mobile Menu -->
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section / Slideshow -->
+    <section id="home" class="hero">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="product1.jpg" alt="Coca-Cola Drinks">
+                <div class="slide-content">
+                    <h2>Coca-Cola Drinks</h2>
+                    <p>Refreshing cola drinks including Coke, Fanta, and Sprite.</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="product2.jpg" alt="Viju Milks">
+                <div class="slide-content">
+                    <h2>Viju Milks</h2>
+                    <p>Explore our range of delicious Viju milk drinks.</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+            </div>
+            <!-- Add more slides -->
+        </div>
+        <!-- Slide controls -->
+        <button class="prev-slide">❮</button>
+        <button class="next-slide">❯</button>
+    </section>
+
+    <!-- Our Mission and Why Choose Us -->
+    <section id="mission" class="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>At Oladayo Enterprises, our mission is to provide top-quality beverages that meet the diverse needs of our customers. We are committed to delivering excellence, sustainability, and customer satisfaction with every product we offer.</p>
+
+            <h2>Why Choose Us</h2>
+            <div class="why-choose-us">
+                <div class="icon-block">
+                    <img src="quality_icon.png" alt="Quality">
+                    <p>High-Quality Products</p>
+                </div>
+                <div class="icon-block">
+                    <img src="price_icon.png" alt="Affordable Prices">
+                    <p>Affordable Prices</p>
+                </div>
+                <div class="icon-block">
+                    <img src="customer_service_icon.png" alt="Customer Service">
+                    <p>Excellent Customer Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+
+            <!-- Coca-Cola Drinks -->
+            <div class="product-category">
+                <h3>Coca-Cola Drinks</h3>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="coke.jpg" alt="Coke">
+                        <h4>Coke</h4>
+                        <p>Price: ₦2850.00</p>
+                        <div class="product-actions">
+                            <input type="number" value="1" min="1" class="product-quantity">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <a href="#" class="wishlist"><img src="wishlist_icon.png" alt="Wishlist"></a>
+                        </div>
+                    </div>
+                    <!-- Add more product cards for Fanta, Sprite, Limca -->
+                </div>
+            </div>
+
+            <!-- Add more categories: Viju Milks, Bigi Drinks, etc. -->
+
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates and exclusive offers directly to your inbox.</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> <a href="tel:+234123456789">+234 123 456 789</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@oladayoenterprises.com">info@oladayoenterprises.com</a></p>
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Happy Customers</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial">
+                    <p>"Great product quality and excellent customer service!"</p>
+                    <h4>- John Doe</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Affordable prices and timely delivery."</p>
+                    <h4>- Jane Smith</h4>
+                </div>
+                <!-- Add more testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Oladayo Enterprises. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><img src="facebook_icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter_icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram_icon.png" alt="Instagram"></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Go to top">Top</button>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+

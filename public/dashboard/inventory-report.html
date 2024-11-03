@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="cashier-dashboard.html">Dashboard</a></li>
+                <li><a href="#">Inventory Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inventory-report">
+            <h1>Inventory Report</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Product 1</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Product 2</td>
+                        <td>50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Real-Time Stock Levels -->
+        <section id="realTimeStock">
+          <h2>Real-Time Stock Levels</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                 <th>Current Stock</th>
+              </tr>
+            </thead>
+            <tbody id="stockLevelList">
+            <!-- Stock level rows will be populated here -->
+            </tbody>
+            </table>
+            </section>
+
+<!-- Profitability Analysis -->
+<section id="profitabilityAnalysis">
+  <h2>Profitability Analysis</h2>
+  <canvas id="profitChart"></canvas>
+</section>
+
+<!-- Historical Trends -->
+<section id="historicalTrends">
+  <h2>Historical Sales Trends</h2>
+  <canvas id="salesTrendChart"></canvas>
+</section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Our Store</p>
+    </footer>
+</body>
+</html>

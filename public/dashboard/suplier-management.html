@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="cashier-dashboard.html">Dashboard</a></li>
+                <li><a href="#">Supplier Management</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="supplier-management">
+            <h1>Supplier Management</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Supplier ID</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Supplier 1</td>
+                        <td>08012345678</td>
+                        <td>Lagos</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Supplier 2</td>
+                        <td>07098765432</td>
+                        <td>Abuja</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+<!-- Supplier Management Section -->
+<section id="supplierManagement">
+    <h2>Supplier Management</h2>
+    <button onclick="openSupplierModal()">Add Supplier</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Supplier ID</th>
+                <th>Name</th>
+                <th>Contact Info</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="supplierList">
+            <!-- Supplier rows will be populated here -->
+        </tbody>
+    </table>
+</section>
+
+<!-- Stock Transfer Log -->
+<section id="stockTransferLog">
+    <h2>Stock Transfer Log</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Transfer ID</th>
+                <th>Product</th>
+                <th>From Location</th>
+                <th>To Location</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="transferLogList">
+            <!-- Stock transfer rows will be populated here -->
+        </tbody>
+    </table>
+</section>
+    <footer>
+        <p>&copy; 2023 Our Store</p>
+    </footer>
+</body>
+</html>

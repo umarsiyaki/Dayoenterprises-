@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enhanced Analytics Dashboard</title>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <button class="toggle-sidebar-btn">&#9776;</button>
+      <img src="assets/img/logo.png" alt="Logo" id="logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/market">Market</a></li>
+        <li><a href="/blogs">Blogs</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+    <div class="user-menu">
+      <input type="text" placeholder="Search..." id="globalSearch">
+      <button id="searchBtn">Search</button>
+      <div class="user-info">
+        <span id="welcome-message">Welcome, <span id="username">Username</span></span>
+        <img src="assets/img/avatar.png" alt="User Avatar">
+        <div class="notification-bell">🔔<span id="notification-count">0</span></div>
+        <div class="dropdown profile-dropdown">
+          <button class="dropbtn">Profile <i class="fas fa-user-circle"></i></button>
+          <div class="dropdown-content">
+            <a href="profile.html">Profile Settings</a>
+            <a href="signin.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Section -->
+  <div class="sidebar">
+    <button class="closebtn" onclick="toggleSidebar()">&times;</button>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="order.html">Orders</a></li>
+        <li><a href="inventory-report.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="file-sharing.html">File Sharing</a></li>
+        <li><a href="task-management.html">Task Management</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="pos.html">POS</a></li>
+        <li><a href="sales-report.html">Sales Report</a></li>
+        <li><a href="blog-modal.html">Create Blog</a></li>
+        <li><a href="tax-management.html">Tax Management</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content Section -->
+  <div id="main-content">
+    <section id="analyticsDashboard">
+      <h2>Analytics Overview</h2>
+
+      <!-- Key Metrics Section -->
+      <div id="keyMetrics">
+        <h3>Key Metrics</h3>
+        <div>Total Sales: <span id="totalSales">$0.00</span></div>
+        <div>Customer Growth: <span id="customerGrowth">0%</span></div>
+        <div>Inventory Value: <span id="inventoryValue">$0.00</span></div>
+        <div>Top Selling Products: <span id="topProducts"></span></div>
+      </div>
+
+      <!-- Advanced Filters Section -->
+      <div id="advancedFilters">
+        <h3>Advanced Filters</h3>
+        <label for="salesRegion">Sales by Region:</label>
+        <select id="salesRegion">
+          <option value="all">All Regions</option>
+          <option value="sisimusu">Sisimusu</option>
+          <option value="mainMarket">Behind Main Market</option>
+          <option value="roundabout">Opposite Roundabout</option>
+        </select>
+
+        <label for="timeRange">Time Range:</label>
+        <select id="timeRange">
+          <option value="last7Days">Last 7 Days</option>
+          <option value="last30Days">Last 30 Days</option>
+          <option value="yearToDate">Year to Date</option>
+        </select>
+
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod">
+          <option value="all">All Methods</option>
+          <option value="cash">Cash</option>
+          <option value="pos">POS</option>
+          <option value="bankTransfer">Bank Transfer</option>
+        </select>
+      </div>
+
+      <!-- Real-Time Data Monitoring Section -->
+      <div id="realTimeMonitoring">
+        <h3>Real-Time Monitoring</h3>
+        <div>Current Active Users: <span id="activeUsers">0</span></div>
+        <div>Live Conversion Rate: <span id="conversionRate">0%</span></div>
+        <div>Order Fulfillment Rate: <span id="fulfillmentRate">0%</span></div>
+      </div>
+
+      <!-- Detailed Reports Section -->
+      <div id="detailedReports">
+        <h3>Detailed Reports</h3>
+        <button id="generateReportBtn">Generate Report</button>
+        <table id="reportTable">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Sales</th>
+              <th>Region</th>
+              <th>Payment Method</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamically populated report data goes here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Notifications and Messages Section -->
+      <div class="dropdown messages-dropdown">
+        <button class="dropbtn">Messages <span class="badge">5</span></button>
+        <div class="dropdown-content">
+          <a href="#">New Message 1</a>
+          <a href="#">New Message 2</a>
+          <a href="#">New Message 3</a>
+          <a href="messages.html">View All Messages</a>
+        </div>
+      </div>
+      <div class="dropdown notifications-dropdown">
+        <button class="dropbtn">Notifications <span class="badge">8</span></button>
+        <div class="dropdown-content" id="notificationSectionId">
+          <a href="#">Notification 1</a>
+          <a href="#">Notification 2</a>
+          <a href="#">Notification 3</a>
+          <a href="notifications.html">View All Notifications</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Analytics Dashboard. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Sidebar Toggle and Dynamic Content -->
+  <script>
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('sidebar-active');
+      document.querySelector('#main-content').classList.toggle('content-shifted');
+    }
+
+    document.querySelector('#generateReportBtn').addEventListener('click', function() {
+      // Placeholder function to generate reports
+      alert('Report generation is in progress...');
+    });
+  </script>
+</body>
+
+</html>
