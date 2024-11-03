@@ -1,0 +1,29 @@
+<div class="product-card">
+  <div class="category">Category: {{ category }}</div>
+  <div class="vendor">Vendor: {{ vendor }}</div>
+  <div class="description">{{ description }}</div>
+  <div class="price">
+    {{ price }}
+    <del>{{ originalPrice }}</del>
+    <span class="sale-badge">Sale!</span>
+  </div>
+  <div class="rating">
+    {{ rating }} ({{ reviews }})
+  </div>
+  <div class="size">
+    <select>
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+  </div>
+  <div class="quantities">
+    <input type="number" value="1">
+  </div>
+  <div class="image">
+    <img src="{{ imageUrl }}" alt="{{ productName }}">
+  </div>
+  <div class="modal" id="product-modal-{{ productId }}">
+    <!-- Modal content -->
+  </div>
+</div>

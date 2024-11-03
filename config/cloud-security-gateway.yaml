@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2022-11-21'
+
+Resources:
+  SecurityGateway:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: security-gateway
+      Description: Cloud security gateway
+      VpcId: !Sub '${AWS::AccountId}-vpc'
+      Tags:
+        - Key: Name
+          Value: security-gateway
+          import boto3
+import pandas as pd
+
+# Initialize AWS services
+sagemaker = boto3.client('sagemaker')
+cloudwatch = boto3.client('cloudwatch')
+securityhub = boto3.client('securityhub')
+
+# Define ATP model
+model = sagemaker.create_model(
+    ModelName='atp-model',
+    ExecutionRoleArn='arn:aws:iam::123456789012:role/atp-execution-role'
+)
+
+# Define ATP rules
+securityhub.create_custom_action(
+    CustomActionName='atp-rule',
+    Description='ATP rule for anomaly detection'
+)
