@@ -1,0 +1,7 @@
+{
+  "run": {
+    "type": "file",
+    "file": "public/dashboard/404.html",
+    "ignoreCurrent": false
+  }
+}
