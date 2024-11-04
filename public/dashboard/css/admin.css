@@ -1,3 +1,4 @@
+
 /* Global Styles */
 * {
   box-sizing: border-box;
@@ -55,52 +56,161 @@ header nav a:hover {
 }
 
 /* Sidebar Styles */
-aside {
-  background-color: #333;
-  width: 200px;
-  height: 100vh;
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 1rem;
-  overflow-y: auto;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  transition: 0.5s;
 }
 
-aside nav {
-  display: block;
-}
-
-aside nav ul {
+.sidebar nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-aside nav li {
-  margin-bottom: 10px;
+.sidebar nav ul li {
+  margin-bottom: 20px;
 }
 
-aside nav a {
+.sidebar nav ul li a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: 0.5s;
 }
 
-aside nav a:hover {
+.sidebar nav ul li a:hover {
   color: #ccc;
 }
 
-aside nav .active {
-  background-color: #2f4050;
+.sidebar.active {
+  width: 80px;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 60px;
+  background-color: #333;
   color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-middle {
+  width: 50%;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  width: 70%;
   padding: 10px;
+  border: none;
   border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: #444;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #444;
+}
+
+/* Badge Styles */
+.badge {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .navbar {
+    width: calc(100% - 200px);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .sidebar {
+    width: 150px;
+  }
+  .navbar {
+    width: calc(100% - 150px);
+  }
 }
 
 /* Main Content Styles */
 main {
-  margin-left: 200px;
+  margin-left: 250px;
   padding: 1rem;
 }
 
@@ -192,5 +302,236 @@ th {
   }
   main {
     margin-left: 100px;
+  }
+}
+
+/* Login Modal Styles */
+#loginModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#loginModal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 80%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Modal Styles */
+#productModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#productModal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 80%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add Cashier Modal Styles */
+#addCashierModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#addCashierModal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 80%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Calculator Modal Styles */
+#calculatorModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#calculatorModal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 80%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Dashboard */
+@media (max-width: 768px) {
+  .dashboard-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-card {
+    width: 100%;
+  }
+}
+
+/* Audit Logs Table */
+#auditLogsTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#auditLogsTable th, #auditLogsTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#auditLogsTable th {
+  background-color: #f0f0f0;
+}
+
+/* Inventory Management Table */
+#inventoryTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#inventoryTable th, #inventoryTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#inventoryTable th {
+  background-color: #f0f0f0;
+}
+
+/* Order Table */
+#orderTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#orderTable th, #orderTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#orderTable th {
+  background-color: #f0f0f0;
+}
+
+/* Product Table */
+#productTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#productTable th, #productTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#productTable th {
+  background-color: #f0f0f0;
+}
+
+/* User Table */
+#userTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#userTable th, #userTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#userTable th {
+  background-color: #f0f0f0;
+}
+
+/* Animation */
+.animate {
+  transition: all 0.5s ease;
+}
+
+.animate:hover {
+  transform: scale(1.1);
+}
+
+/* Badge Notification */
+.badge-notification {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.preloader-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }

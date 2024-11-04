@@ -1,4 +1,149 @@
 // admin-dashboard.js
+// Import JavaScript files
+import './js/Add-blog.js';
+import './js/admin-dashboard.js';
+import './js/ajax.js';
+import './js/calculator.js';
+import './js/chart.js';
+import './js/login.js';
+import './js/main.js';
+import './js/modals.js';
+import './js/Analytics.js';
+import './js/Biometric.js';
+import './js/check-out.js';
+import './js/product-calculator.js';
+import './js/register.js';
+import './js/retrieve.js';
+import './js/scripts.js';
+import './js/search.js';
+import './js/Account-management.js';
+import './js/Firebase.js';
+import './js/devicetrackingsystem.js';
+import './js/dataset-redirection.js';
+import './js/employee-management.js';
+import './js/form.js';
+import './js/inventory-report.js';
+import './js/inventory.js';
+import './js/main.js';
+import './js/message.js';
+import './js/moderator.js';
+import './js/network-segment.js';
+
+// Initialize features
+$(document).ready(function () {
+  // Admin Dashboard
+  adminDashboard.init();
+
+  // Analytics
+  analytics.init();
+
+  // Biometric Authentication
+  biometric.init();
+
+  // Calculator
+  calculator.init();
+
+  // Chart
+  chart.init();
+
+  // Login/Registration
+  login.init();
+  register.init();
+
+  // Modals
+  modals.init();
+
+  // Product Calculator
+  productCalculator.init();
+
+  // Search
+  search.init();
+
+  // Account Management
+  accountManagement.init();
+
+  // Employee Management
+  employeeManagement.init();
+
+  // Inventory Management
+  inventory.init();
+
+  // Message System
+  message.init();
+
+  // Moderator
+  moderator.init();
+
+  // Network Segment
+  networkSegment.init();
+
+  // Device Tracking System
+  deviceTrackingSystem.init();
+
+  // Dataset Redirection
+  datasetRedirection.init();
+
+  // Firebase Integration
+  firebase.init();
+
+  // Ajax Requests
+  ajax.init();
+
+  // Checkout
+  checkOut.init();
+
+  // Scripts
+  scripts.init();
+
+  // Retrieve Data
+  retrieve.init();
+
+  // Form Validation
+  form.init();
+
+  // Inventory Report
+  inventoryReport.init();
+});
+
+// Administration Role Management
+const administration = {
+  // User Roles
+  roles: [
+    { id: 1, name: 'Admin' },
+    { id: 2, name: 'Moderator' },
+    { id: 3, name: 'Employee' },
+    { id: 4, name: 'Customer' },
+  ],
+
+  // User Permissions
+  permissions: [
+    { id: 1, name: 'Create' },
+    { id: 2, name: 'Read' },
+    { id: 3, name: 'Update' },
+    { id: 4, name: 'Delete' },
+  ],
+
+  // Assign Roles to Users
+  assignRole: (userId, roleId) => {
+    // Implement role assignment logic
+  },
+
+  // Assign Permissions to Roles
+  assignPermission: (roleId, permissionId) => {
+    // Implement permission assignment logic
+  },
+
+  // Check User Permissions
+  checkPermission: (userId, permissionId) => {
+    // Implement permission checking logic
+  },
+};
+
+// Use administration role management
+Object.keys(administration).forEach((feature) => {
+  administration[feature]();
+});
+// user management table 
 const userManagementTable = document.getElementById('user-management-table');
 const moderatorManagementTable = document.getElementById('moderator-management-table');
 
