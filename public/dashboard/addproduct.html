@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/addproduct.css">
+        <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
     <header>
@@ -64,7 +66,53 @@
                     <label for="product-supplier">Product Supplier:</label>
                     <input type="text" id="product-supplier" name="product-supplier" required>
                 </div>
+                
+                <!-- Product Variants Section -->
+                <div class="form-group">
+                    <label>Product Variants:</label>
+                    <div id="variant-container"></div>
+                    <button type="button" id="add-variant">Add Variant</button>
+                </div>
+
+                <!-- Promo Discount Section -->
+                <div class="form-group">
+                    <label for="promo-type">Promo Discount Type:</label>
+                    <select id="promo-type" name="promo-type">
+                        <option value="percentage">Percentage</option>
+                        <option value="fixed">Fixed Amount</option>
+                        <option value="bogo">Buy One Get One (BOGO)</option>
+                    </select>
+                    <label for="promo-discount">Promo Discount Value:</label>
+                    <input type="number" id="promo-discount" name="promo-discount" placeholder="Discount value">
+                    <label for="promo-start">Promo Start Date:</label>
+                    <input type="date" id="promo-start" name="promo-start">
+                    <label for="promo-end">Promo End Date:</label>
+                    <input type="date" id="promo-end" name="promo-end">
+                </div>
+
+                <!-- Labels Section -->
+                <div class="form-group">
+                    <label for="product-labels">Labels:</label>
+                    <select id="product-labels" name="product-labels" multiple>
+                        <option value="new">New</option>
+                        <option value="bestseller">Bestseller</option>
+                        <option value="limited">Limited Edition</option>
+                        <option value="featured">Featured</option>
+                    </select>
+                </div>
+
+                <!-- Product Availability -->
+                <div class="form-group">
+                    <label for="availability-start">Available From:</label>
+                    <input type="date" id="availability-start" name="availability-start">
+                    <label for="availability-end">Available Until:</label>
+                    <input type="date" id="availability-end" name="availability-end">
+                    <label for="stock-threshold">Stock Threshold Notification:</label>
+                    <input type="number" id="stock-threshold" name="stock-threshold" placeholder="Notify at stock level">
+                </div>
+
                 <button type="submit" class="btn btn-primary">Add Product</button>
+                
             </form>
         </section>
     </main>
@@ -72,5 +120,10 @@
         <p>&copy; 2023 E-commerce Website</p>
     </footer>
     <script src="script.js"></script>
+    
+    <script src="../js/addProduct.js"></script>
 </body>
 </html>
+
+
+

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Enhanced Analytics Dashboard</title>
   <link rel="stylesheet" href="nav.css">
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
 
 <body>
@@ -116,6 +119,9 @@
         <div>Order Fulfillment Rate: <span id="fulfillmentRate">0%</span></div>
       </div>
 
+      <!-- Chart.js Implementation -->
+      <canvas id="salesChart" width="400" height="200"></canvas>
+
       <!-- Detailed Reports Section -->
       <div id="detailedReports">
         <h3>Detailed Reports</h3>
@@ -151,30 +157,16 @@
         <div class="dropdown-content" id="notificationSectionId">
           <a href="#">Notification 1</a>
           <a href="#">Notification 2</a>
-          <a href="#">Notification 3</a>
-          <a href="notifications.html">View All Notifications</a>
+          <a href
+
+="#">Notification 3</a>
+          <a href="#">View All Notifications</a>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2024 Analytics Dashboard. All rights reserved.</p>
-  </footer>
-
-  <!-- JavaScript for Sidebar Toggle and Dynamic Content -->
-  <script>
-    function toggleSidebar() {
-      document.querySelector('.sidebar').classList.toggle('sidebar-active');
-      document.querySelector('#main-content').classList.toggle('content-shifted');
-    }
-
-    document.querySelector('#generateReportBtn').addEventListener('click', function() {
-      // Placeholder function to generate reports
-      alert('Report generation is in progress...');
-    });
-  </script>
+  <script src="js/analytics.js"></script>
 </body>
 
 </html>
