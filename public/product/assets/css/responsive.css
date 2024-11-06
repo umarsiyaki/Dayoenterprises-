@@ -88,7 +88,7 @@
 	
 	.top-header .customer-links { display:none; position:absolute; right:0; top:29px; z-index:222; margin:0; width:140px; background:#fff; box-shadow:1px 1px 3px rgba(0,0,0,0.2); -webkit-box-shadow:1px 1px 3px rgba(0,0,0,0.2); }
 	.top-header .customer-links li { display:block; text-align:left; margin:0; padding:0; border-bottom:1px solid #ddd; }
-	.top-header .customer-links li a { color:#555; padding:10px; display:block; }
+	.top-header .customer-links li a { color:#555; padding:7px; display:block; }
 	.top-header .customer-links li a:hover { opacity:0.7; }
 	
 	#siteNav { display:none; }
@@ -100,18 +100,18 @@
 	body.menuOn .pageWrapper { left:270px }
 	#pageWrapper { position:relative; left:0; -ms-transition:all 0.4s ease-in-out; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
 	.js-mobile-nav-toggle .anm { display:none; color:#000; }
-	.site-header__menu { border:0; padding:0; font-size:17px; display:block; cursor:pointer; }
+	.site-header__menu { border:0; padding:0; font-size:35px; display:block; cursor:pointer; }
 	.js-mobile-nav-toggle.mobile-nav--open .anm-bars-r,
 	.js-mobile-nav-toggle.mobile-nav--close .icon.anm.anm-times-l { display:inline-block; }
 	#MobileNav { height:100%; overflow:auto; list-style:none; padding:0; margin:0; }
-	.mobile-nav-wrapper .closemobileMenu { color:#000; font-size:13px; padding:8px 10px; background-color:#eee; cursor:pointer; }
-	.mobile-nav-wrapper .closemobileMenu .anm { font-size:13px; padding:2px; float:right; }
+	.mobile-nav-wrapper .closemobileMenu { color:#000; font-size:18px; padding:8px 10px; background-color:#eee; cursor:pointer; }
+	.mobile-nav-wrapper .closemobileMenu .anm { font-size:18px; padding:2px; float:right; }
 	.mobile-nav-wrapper { width:270px; height:100%;position:fixed; left:-270px; top:0; z-index:999; background-color:#ffffff; box-shadow:0 0 5px rgba(0,0,0,0.3); opacity:0; visibility:hidden;-ms-transition:all 0.4s ease-in-out; -webkit-transition:all 0.4s ease-in-out; transition:all 0.4s ease-in-out; }
 	.mobile-nav-wrapper.active { left:0; opacity:1; visibility:visible; }
 	#MobileNav li { border-top:1px solid #eeeeee; position:relative }
 	#MobileNav li.grid__item {float:none;padding:0 }
-	#MobileNav li a { color:#333333; font-size:14px; text-decoration:none; display:block; padding:10px 45px 10px 10px; opacity:1; -webkit-font-smoothing:antialiased; font-weight:400; letter-spacing:0.05em; text-transform:uppercase; position:relative }
-	#MobileNav li a .anm { color:#333333; font-size:11px; display:block; width:40px; height:40px; line-height:40px; position:absolute; right:0; top:0; text-align:center  }
+	#MobileNav li a { color:#333333; font-size:20px; text-decoration:none; display:block; padding:10px 45px 10px 10px; opacity:1; -webkit-font-smoothing:antialiased; font-weight:400; letter-spacing:0.05em; text-transform:uppercase; position:relative }
+	#MobileNav li a .anm { color:#333333; font-size:28px; display:block; width:40px; height:40px; line-height:40px; position:absolute; right:0; top:0; text-align:center  }
 	#MobileNav li a .lbl { color:#ffffff; font-size:10px; font-weight:400; letter-spacing:0; line-height:1; text-transform:uppercase; display:inline-block; padding:2px 4px; border-radius:3px; background-color:#f00; box-shadow:0 0 3px rgba(0,0,0,0.3); position:relative; vertical-align:middle }
 	#MobileNav li a .lbl:after { content:" "; display:block; width:0; height:0; position:absolute; bottom:3px; left:-7px; border:4px solid transparent; border-right-color:#f00 }
 	#MobileNav li a .lbl.nm_label1 { background-color:#01bad4 }
@@ -488,7 +488,7 @@
 
 @media only screen and (max-width: 480px) {
 	.top-header .col-10 { padding-right:5px; }
-	.top-header .text-right { padding-left:5px; }
+	.top-header .text-right { padding-left:4px; }
 	.selected-currency, .language-dd { margin-right:5px; }
 	.top-header p, .top-header a, .top-header select, .top-header .fa, .top-header span.selected-currency, .language-dd { font-size:11px; letter-spacing:0; }
 	
@@ -510,7 +510,7 @@
 	.home2-default .slideshow .slideshow__title { font-size:18px; }
 	
 	.home3-boxed-layout .tab-slider-product .col-12,
-	.home3-boxed-layout .tab_container .grid-products .item { padding:0; }]
+	.home3-boxed-layout .tab_container .grid-products .item { padding:0; }
 	
 	.hero .text-large .mega-title { font-size:26px; }
 	.hero .text-large .mega-subtitle { font-size:15px; }

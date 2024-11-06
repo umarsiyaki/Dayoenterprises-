@@ -1,0 +1,260 @@
+
+ 
+{
+  "$schema": "(http://localhost)#",
+  "title": "Product",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique product ID" },
+    "name": { "type": "string", "description": "Product name" },
+    "category": { "type": "string", "description": "Product category" },
+    "image": { "type": "string", "description": "Product image URL" },
+    "price": { "type": "number", "description": "Product price" },
+    "size": { "type": "string", "description": "Product size" },
+    "vendor": { "type": "string", "description": "Product vendor" },
+    "supplier": { "type": "string", "description": "Product supplier" },
+    "pages": { "type": "array", "items": { "$ref": "#/definitions/page" } },
+    "status": { "type": "string", "description": "Product status" },
+    "description": { "type": "string", "description": "Product description" },
+    "rating": { "type": "number", "description": "Product rating" },
+    "reviews": { "type": "array", "items": { "$ref": "#/definitions/review" } },
+    "stock": { "type": "number", "description": "Product stock level" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "definitions": {
+    "page": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "pageType": { "type": "string" },
+        "content": { "type": "string" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" }
+      }
+    }
+  }
+}
+
+
+
+2.
+Follow this to regenerate healthy product cards " description and initial products id.
+
+       Big.html [price:N 3700, size : 600ml,330ml vendor:big, supplier: oladayo]
+       
+           name:big cola  category: fruit,image: big-cola330.jpeg,
+           
+            name:big cola 650ml category: fruit,image: big-cola650.jpeg
+             big-g-apple.jpeg,
+             
+           name:bigi bitter lemon  category: fruit,image:  Bigi-Bitterlemon-50cl.webp
+           
+           bigi.html[price: 3100, 2700. sizes: 500ml,300ml  vendor:bigi, supplier: oladayo]
+           name:bigi cherry berry category: fruit,image:
+             bigi-cherib.jpeg
+             
+             
+             bigi-collection.jpeg
+            name:bigi ginger  category: fruit,image: bigi-ginger.jpeg,
+            
+         name:bigi lime  category: fruit,image:   bigi-lime.jpeg
+         
+            name:bigi orange  category: fruit,image: big-orange.jpeg
+             bubbleup.jpeg
+             
+             climax.html[size: 600ml, initial products id: cli-001, price: 5000, vendor:climax, supplier: oladayo]
+             
+           name:climax energy drink category: fruit,image:  climax-energy-drink-can-33cl.jpg,
+           
+         name:climax herbal energy drinks category: energy,image:    climaxh.jpg,
+         
+             climaxpck.jpeg
+          
+          name:climax red  category: energy,image:   CLIMAX-RED.png,
+          
+          
+          Coca-Cola.html[price: 3850, initial products id: coc-001 sizes:1l, 35cl, 40cl, 45, 50,60. vendor: Coca-Cola, supplier: oladayo]
+          
+            name: American cola category: cola,image: cAmerica.jpg,
+            
+            name: coke mum category:cola image: cmum.jpg,
+            
+             coke-create.jpeg
+             cokepack.jpeg
+            name: zero sugar coke  category: cola,image: coke-zero.jpg
+            
+            name: 5 alive citrus bust category: fruit,image:c-5alive-citrus_bust.jpg,
+            
+            name: 5alive berry blast
+             category: fruit,image: c-5alive-berry-blast.jpeg
+            
+                name: 5alive berry blast category: fruit,image:c-5alive-mang.jpg,
+                
+                    name: 5alive tropical
+    category: tropical,image: c-5alive-trpic.jpg
+    
+        name: limca 
+    category: fruit,image:c-limca.webp, 
+        
+            name: pop
+    category: fruit,image:c-pop.jpg,
+        name: Schweppes 
+    category: solda,image: c-schweps.jpg
+    
+        name: Sprite 
+    category: solda,image:c-sprite.jpg,
+    
+        name: Schweppes 
+    category: solda,image: c-schwepps-solda.jpg
+            name: fearless  category: energy,image: fearless.jpeg
+            
+           slim.html[price:3500, initial size:35cl, 60cl products id: sli-001 vendor:slim, supplier: oladayo]
+           name:hamoud boualem slim orange  category: energy,image:  HAMOUD-BOUALEM-Slim-Orange-Verre-1l-300x300.jpg,
+           
+           holandia.html [vendor:holandia, supplier: oladayo, size: 1l, 600ml price: 11000, 6000],.
+           
+           name: holandia slim category: energy,image: hol-slim.png
+            
+            name: holandia lactose free category: milk drink,image: holandia-lactoo-free.jpg
+            
+            name: holandia malt milk category: milk drink,image: holandia-malt-milk.jpg
+            
+            name: holandia nuti youghort  category: youghort,image: holandia-nutryo.jpg
+            
+            name: holandia strawberry 🍓 category: fruit,image: holandia-straw.jpg
+            
+            name: holandia vanilla flavor category: fruit,image: holandia-vanilaf.jpg
+            
+            name: holandia youghort category: youghort,image: holandia -y.jpg
+            name: holandia zero sugar youghort category: youghort,image: holandia-zero.jpg
+            
+            lucozade.html [size: 600ml, price 4500]
+            
+          [ name: lucozade alert tropical category: energy ,image:  l-alert-t.jpeg]
+          
+          [ name: lucozade black currant, category: energy ,image:      l-b-currant.jpeg],
+          
+             [ name: lucozade  original, category: energy ,image: l-original.jpeg]
+             
+            [ name: lucozade  tropical fusion , category: energy ,image: lucozadetfusi.jpeg,
+            
+               name: lucozade tropical 
+    category: fruit,image:  lucozade-trop.jpeg]
+             
+             
+             maltina.html [size 35cl, 40cl price: 4200, initial products id: mal-001], 
+             
+           name: Malta gueness  category: refreshments ,image:  malta-gueness.jpg, 
+           
+          name: Malta gueness category: refreshments ,image:     malta-gueness-can.jpg,
+          
+            name: maltina can category: refreshments ,image:   maltina-can.jpg, 
+            
+       name:amstel malt category: refreshments ,image: m-amstel.jpg, 
+       
+         name:beta malt category: refreshments ,image: mbeta-gb.jpg, 
+         
+            name:malt beta category: refreshments ,image: m-betta-can.jpg,
+            
+         name:dubic maltina  category: refreshments ,image:    mdubic.jpg,
+         
+      name:grand makt category: refreshments ,image:       m-grand.png, 
+      
+      name:hi malt can category: refreshments ,image:  m-hi-can.jpeg,
+      
+           name:  category: refreshments ,image:
+             m-hi-plas.jpeg,
+             
+           name:macca  category: energy,image:  m-macca.jpg,
+           
+          Pepsi.html [size: 45cl, price: 3700]
+          name:pepsi cola  category: cola,image:   pepsi-c.jpeg,
+          
+          name:pepsi diet cafain category: energy,image: p-diet-caf.jpg,
+          
+          name: mountain dew category: energy,image: pep-mountain.jpg,
+          
+           name: Pepsi zero cola category: cola,image:  pepsi-col.jpeg,
+           
+            name:7up  category: energy,image:  7uppck.jpeg
+          name:reactor  category: energy,image:   reactor.jpg  
+          
+          name:dr. pepper 🌶️ category: energy,image:pep-dr-pep.jpg
+          
+          name:team  category: fruit,image:team.jpg,
+          
+          
+          name:schweppes5  category: fruit,image:
+             scheppes5.webp,
+             
+           name: Schweppes tangerine category: fruit,image:  scheppestangerin.webp,
+           
+           name: Schweppes  category: fruit,image:
+             schweppes.jpg,
+             
+            name:schweppes  category: fruit,image: schweppes-can.jpg,
+            
+           name:schweppes t water,   category: water,image: schweppes-t-water.jpg
+             
+             
+             slim .html initial products id(sli-001), size 45cl,33cl, 60cl.
+             
+
+           name slim fraise category: refreshments , slim[-red.jpeg
+           
+           name:slim orange category: refreshments ,image:  slim  Slim_FRAISE_33cl_PET.jpeg, 
+             
+        name:slim orange category: refreshments ,image:  slim-orange.jpg,
+        
+        name:slim chapman category: refreshments ,image: slim-chapman.jpg,
+        
+        name:slim  category: refreshments ,image:  slim
+             smoovpck.jpeg
+          name: super komando category: fruit,image:   super-com.jpeg, 
+          
+             user.jpg
+             
+             viju.html[size :5l,2l,1l, 500ml, price:5900. initial products id(vij-001).]
+             
+           viju bobo  image: v-bobo.jpg  category: refreshments,
+           name: peak youghort category: youghort,
+           image:  peak-youg.jpg,
+           
+           name:viju chocolate category: refreshments ,image:    v-choco.jpeg,
+           
+           name:viju fresh youghort category: youghort ,image:    v-freshyo.jpeg, 
+           
+           name: lacasera apple 🍓 category: fruit ,image:    v-lacapple.jpg,
+           
+            name:vigore energy category: refreshments ,image: vigor.jpeg,
+            
+           name:mr. bean soya milk chocolate category: milk drink,image:  vmr-beansoy.jpeg,
+           
+         name:viju orange 🍊 category: fruit ,image:    v-orange.jpeg, 
+         
+          name:viju pineapple 🍍 category: fruit ,image:   v-pine.jpeg, 
+          
+        name:viju plain youghort category: youghort ,image:     vp-yough.jpeg,
+        
+            name:viju smartic category: refreshments ,image: v-smart.jpeg,
+            
+            name:viju soya milk category: milk ,image: v-soyam.jpeg,
+            
+           name:viju wheat category: refreshments ,image:  v-wheat.jpeg,
+           
+          name:viju soya milk category: refreshments , image:v-soyam.jpeg
+          
+          name:mr. v category: water ,image:   mr.v.jpeg
+            
+            name:zagg category: energy  ,image: zagg.jpg, 
+       
+       
+       to dos:
+       Generation of product mapping, data structure and dataset files of  the product cards sections of 'big.html, bigi.html, Coca-Cola.html, climax.html, holandia.html, lucozade.html, maltina.html, pepsi.html, slim.html, and viju.html.
