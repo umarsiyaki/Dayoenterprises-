@@ -1,110 +1,150 @@
-/* Global Styles */
+
+/* Reset some default browser styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Body and General Layout */
 body {
-  background-color: #f4f4f9;
-  color: #333;
-  line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    padding: 20px;
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Navbar Styling */
-.navbar {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
-.navbar .logo img {
-  width: 150px;
+/* Form and Input Styles */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
-.navbar .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+textarea {
+    height: 100px;
+    resize: vertical;
 }
 
-.navbar .nav-links .nav-link {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.navbar .nav-links .nav-link:hover {
-  color: #00c4cc;
-}
-
-/* Main Content Styling */
-.main-container {
-  padding: 2rem;
-}
-
-#mainContent {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
-}
-
-/* Component Card Styling */
+/* Card Layout */
 .card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Buttons */
-button {
-  background-color: #00c4cc;
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-button:hover {
-  background-color: #008f92;
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Responsive Design */
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Form Container */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .card {
+        padding: 15px;
+    }
 
-  .navbar .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-  }
+    h2 {
+        font-size: 20px;
+    }
 
-  .main-container {
-    padding: 1rem;
-  }
+    table {
+        font-size: 14px;
+    }
 
-  #mainContent {
-    padding: 1rem;
-  }
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
 }

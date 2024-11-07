@@ -1,17 +1,73 @@
+
 <div class="card">
-  <h2>Attendance Tracking</h2>
-  <table id="attendanceTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Check-In</th>
-        <th>Check-Out</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Dynamic attendance data will be injected here -->
-    </tbody>
-  </table>
-  <button id="markAttendanceBtn">Mark Attendance</button>
+    <h2>Attendance Tracking</h2>
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Check-In</th>
+                <th>Check-Out</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic attendance data will be injected here -->
+        </tbody>
+    </table>
+    <button id="markAttendanceBtn" class="btn-primary">Mark Attendance</button>
+
+    <!-- Attendance Modal -->
+    <div id="attendanceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Mark Attendance</h3>
+            <form id="attendanceForm">
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" name="employeeName" placeholder="Enter employee name" required>
+                <label for="checkIn">Check-In:</label>
+                <input type="time" id="checkIn" name="checkIn" required>
+                <label for="checkOut">Check-Out:</label>
+                <input type="time" id="checkOut" name="checkOut">
+                <button type="submit" class="btn-primary">Submit Attendance</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+
+<div class="analytics">
+    <h2>Attendance Overview</h2>
+    <canvas id="attendanceChart"></canvas>
+    <h2>Payroll Summary</h2>
+    <canvas id="payrollChart"></canvas>
+</div>
+<style type="text/css" media="all">
+  
+#attendanceTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#attendanceTable th,
+#attendanceTable td {
+    text-align: center;
+    font-size: 14px;
+}
+
+#attendanceTable th {
+    background-color: #007bff;
+    color: white;
+}
+
+#attendanceTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#markAttendanceBtn {
+    margin-top: 20px;
+    width: 100%;
+}
+</style>
+

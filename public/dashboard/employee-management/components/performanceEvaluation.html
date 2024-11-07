@@ -1,16 +1,54 @@
-<!-- performanceEvaluation.html -->
-<div class="component" id="performance-evaluation">
-  <h2>Performance Evaluation</h2>
-  <form id="performance-form">
-    <label for="employee-id">Employee ID:</label>
-    <input type="text" id="employee-id" name="employee-id" required>
 
-    <label for="performance-score">Performance Score:</label>
-    <input type="number" id="performance-score" name="performance-score" required>
-
-    <label for="comments">Comments:</label>
-    <textarea id="comments" name="comments"></textarea>
-
-    <button type="submit" class="btn">Submit Evaluation</button>
-  </form>
+<div class="card">
+    <h2>Performance Evaluation & History</h2>
+    <table id="performanceHistoryTable">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Rating</th>
+                <th>Comments</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Performance history data injected dynamically -->
+        </tbody>
+    </table>
+    <form id="performanceForm">
+        <div class="form-group">
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" name="employeeName" required>
+        </div>
+        <div class="form-group">
+            <label for="performanceRating">Performance Rating:</label>
+            <select id="performanceRating" name="performanceRating">
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Save Evaluation</button>
+    </form>
 </div>
+
+<style type="text/css" media="all">
+  
+#performanceForm .form-group {
+    margin-bottom: 20px;
+}
+
+#performanceForm select,
+#performanceForm textarea {
+    margin-top: 5px;
+}
+
+#performanceForm button {
+    margin-top: 20px;
+    width: 100%;
+}
+</style>

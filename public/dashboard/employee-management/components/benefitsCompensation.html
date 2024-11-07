@@ -1,16 +1,35 @@
-<!-- benefitsCompensation.html -->
-<div class="component" id="benefits-compensation">
-  <h2>Benefits and Compensation</h2>
-  <form id="benefits-form">
-    <label for="employee-id">Employee ID:</label>
-    <input type="text" id="employee-id" name="employee-id" required>
 
-    <label for="benefit-type">Benefit Type:</label>
-    <input type="text" id="benefit-type" name="benefit-type" required>
-
-    <label for="benefit-amount">Benefit Amount:</label>
-    <input type="number" id="benefit-amount" name="benefit-amount" required>
-
-    <button type="submit" class="btn">Save Benefits</button>
-  </form>
+<div class="card">
+    <h2>Benefits & Compensation</h2>
+    <form id="benefitsForm">
+        <div class="form-group">
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" name="employeeName" required>
+        </div>
+        <div class="form-group">
+            <label for="benefitType">Benefit Type:</label>
+            <select id="benefitType" name="benefitType">
+                <option value="Health Insurance">Health Insurance</option>
+                <option value="Retirement Plan">Retirement Plan</option>
+                <option value="Paid Time Off">Paid Time Off</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn-primary">Assign Benefit</button>
+    </form>
 </div>
+
+<style type="text/css" media="all">
+  
+#benefitsForm .form-group {
+    margin-bottom: 20px;
+}
+
+#benefitsForm button {
+    margin-top: 20px;
+    width: 100%;
+}
+</style>

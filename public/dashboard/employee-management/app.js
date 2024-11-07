@@ -1,18 +1,8 @@
 
-import { markAttendance, loadAttendanceData } from './attendance.js';
-import { processPayroll, loadPayrollData } from './payroll.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize data loading
-    loadAttendanceData();
-    loadPayrollData();
-
-    // More initialization as needed...
-});
 const express = require('express');
 const db = require('./db');
-const attendanceRoutes = require('../../routes/attendanceRoutes');
-const payrollRoutes = require('../../routes/payrollRoutes');
+const attendanceRoutes = require('./routes/attendanceRoutes');
+const payrollRoutes = require('./routes/payrollRoutes');
 
 const app = express();
 const PORT = 3000;
