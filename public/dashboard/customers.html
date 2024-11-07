@@ -1,54 +1,88 @@
-<!DOCTYPE html>
+[11/6, 14:48] Meta AI: Here's an updated version of the code with more advanced features:
+
+_index.html_
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>customer performance</title>
-  <<link rel="stylesheet" href="css/admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Customer Performance</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#customerSegmentation">Customer Segmentation</a></li>
+                <li><a href="#customerFeedback">Customer Feedback</a></li>
+                <li><a href="#customerInsights">Customer Insights</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Customer Segmentation Section -->
-<section id="customerSegmentation">
-    <h2>Customer Segmentation</h2>
-    <div id="segmentFilters">
-        <label for="segmentType">Select Segment:</label>
-        <select id="segmentType">
-            <option value="frequent">Frequent Buyers</option>
-            <option value="highSpender">High Spenders</option>
-        </select>
-        <button onclick="filterCustomersBySegment()">Filter</button>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>Customer ID</th>
-                <th>Name</th>
-                <th>Total Purchases</th>
-            </tr>
-        </thead>
-        <tbody id="segmentedCustomerList">
-            <!-- Segmented customer rows -->
-        </tbody>
-    </table>
-</section>
+    <!-- Customer Segmentation Section -->
+    <section id="customerSegmentation">
+        <h2>Customer Segmentation</h2>
+        <div id="segmentFilters">
+            <label for="segmentType">Select Segment:</label>
+            <select id="segmentType">
+                <option value="frequent">Frequent Buyers</option>
+                <option value="highSpender">High Spenders</option>
+                <option value="newCustomers">New Customers</option>
+            </select>
+            <button id="filterButton">Filter</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Total Purchases</th>
+                    <th>Average Order Value</th>
+                </tr>
+            </thead>
+            <tbody id="segmentedCustomerList">
+                <!-- Segmented customer rows -->
+            </tbody>
+        </table>
+    </section>
 
-<!-- Customer Feedback Modal -->
-<div id="feedbackModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+    <!-- Customer Feedback Section -->
+    <section id="customerFeedback">
         <h2>Customer Feedback</h2>
-        <form id="feedbackForm">
-            <label for="feedbackCustomer">Customer:</label>
-            <select id="feedbackCustomer"></select>
-            <label for="feedbackText">Feedback:</label>
-            <textarea id="feedbackText" required></textarea>
-            <button type="submit">Submit Feedback</button>
-        </form>
-    </div>
-</div>
+        <button id="openFeedbackModal">Submit Feedback</button>
+        <div id="feedbackModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+                <h2>Customer Feedback</h2>
+                <form id="feedbackForm">
+                    <label for="feedbackCustomer">Customer:</label>
+                    <select id="feedbackCustomer"></select>
+                    <label for="feedbackText">Feedback:</label>
+                    <textarea id="feedbackText" required></textarea>
+                    <label for="feedbackRating">Rating:</label>
+                    <select id="feedbackRating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Insights Section -->
+    <section id="customerInsights">
+        <h2>Customer Insights</h2>
+        <div id="insightsChart"></div>
+    </section>
+
+    <script src="js/customer.js"></script>
 </body>
 </html>

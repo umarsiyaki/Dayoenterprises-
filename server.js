@@ -758,6 +758,28 @@ function isAuthenticated(req, res, next) {
   next();
 }
 
+app.use(express.json());
+
+// Routes
+const employeeRoutes = require('./routes/employees');
+const attendanceRoutes = require('./routes/attendance');
+const payrollRoutes = require('./routes/payroll');
+const performanceRoutes = require('./routes/performance');
+const trainingRoutes = require('./routes/training');
+const benefitsRoutes = require('./routes/benefits');
+const leaveRoutes = require('./routes/leave');
+const promotionRoutes = require('./routes/promotion');
+const terminationRoutes = require('./routes/termination');
+
+app.use('/api/employees', employeeRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/payroll', payrollRoutes);
+app.use('/api/performance', performanceRoutes);
+app.use('/api/training', trainingRoutes);
+app.use('/api/benefits', benefitsRoutes);
+app.use('/api/leave', leaveRoutes);
+app.use('/api/promotion', promotionRoutes);
+app.use('/api/termination', terminationRoutes);
 // Protect review submission route
 app.post('/api/reviews', isAuthenticated, async (req, res) => {
   // Review submission logic
