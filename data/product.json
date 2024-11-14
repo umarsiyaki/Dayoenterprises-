@@ -28,5 +28,90 @@
         "seasonalDiscount": { "holidaySeason": 25 }
       }
        }
-     ]
+     ],
+
+
+"productManagement": {
+"product": {
+"baseName": ["Organic Apples", "Bananas", "Almond Milk", "Cheddar Cheese"],
+"categories": ["Fruit", "Vegetable", "Dairy", "Meat"],
+"basePriceRange": {
+"min": 1.99,
+"max": 15.99
+},
+"baseQuantityRange": {
+"min": 50,
+"max": 500
+},
+"baseSizes": ["500g", "1kg", "2kg"],
+"descriptionTemplates": [
+"Fresh {product} from local farms.",
+"{product} harvested with care and quality.",
+"High-quality {product} for daily use.",
+"Natural and pure {product} sourced locally."
+],
+"vendors": ["FreshFarms", "EcoFoods", "GreenValley"],
+"suppliers": ["Local Supplies Inc.", "Farm Direct Ltd.", "Eco Supplier Co."]
+},
+"variants": {
+"enableVariants": true,
+"variantTypes": ["Color", "Size", "Quality"],
+"variantOptions": {
+"Color": ["Red", "Green", "Yellow"],
+"Size": ["Small", "Medium", "Large"],
+"Quality": ["Standard", "Premium", "Organic"]
+},
+"priceAdjustmentRange": {
+"min": 0.10,
+"max": 3.00
+}
+},
+"promo": {
+"enablePromo": true,
+"types": ["percentage", "fixed", "bogo"],
+"discountRange": {
+"minPercentage": 5,
+"maxPercentage": 50,
+"minFixed": 1.00,
+"maxFixed": 10.00
+},
+"dateRange": {
+"startOffsetDays": 0,
+"endOffsetDays": 30
+}
+},
+"labels": ["new", "bestseller", "limited", "featured"],
+"availability": {
+"defaultStartDate": "2024-01-01",
+"availabilityDurationDays": 180,
+"stockThresholdRange": {
+"min": 10,
+"max": 100
+}
+}
+},
+"cart": {
+"maxItemsPerCart": 20,
+"autoDiscountThreshold": 100.00,
+"discounts": [
+{
+"threshold": 50.00,
+"discountPercentage": 5
+},
+{
+"threshold": 100.00,
+"discountPercentage": 10
+}
+]
+},
+"wishlist": {
+"maxItems": 50,
+"autoShareOptions": ["email", "socialMedia", "copyLink"],
+"defaultShareMessage": "Check out my wishlist on our store!"
+},
+"share": {
+"enableSocialSharing": true,
+"platforms": ["Facebook", "Twitter", "Instagram", "WhatsApp"],
+"shareMessageTemplate": "Discover amazing products at our store: {productLink}"
+}
 }

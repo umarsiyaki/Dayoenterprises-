@@ -1,439 +1,398 @@
+Here's a merged version of the two forms into a single HTML structure with a unified style. This version includes comprehensive front-end validation using HTML5 required attributes and `data-errors` attributes, with room for back-end integration in Node.js with Express. The backend can manage form validation using middleware.
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href=".css/nav.css">
-  <link rel="icon" href="favicon.ico">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#" class="active">Dashboard</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="#">Chat</a></li>
-        <li><a href="#">Video Conference</a></li>
-        <li><a href="#">File Sharing</a></li>
-        <li><a href="#">Task Management</a></li>
-        <li><a href="#">Calendar</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    
-    <script>
-  
-    </script>
-    
-    <style>
-      
+### Merged HTML Structure
 
-    </style>
-    <!-- Dashboard Section -->
-    <section id="dashboard">
-      <h1>Dashboard</h1>
-      <div class="card">
-        <h2>Product Stats</h2>
-        <p>Total Products: <span id="total-products">0</span></p>
-        <p>Out of Stock: <span id="out-of-stock">0</span></p>
-        <p>Low Stock: <span id="low-stock">0</span></p>
-      </div>
-      <div class="card">
-        <h2>User Stats</h2>
-        <p>Total Users: <span id="total-users">0</span></p>
-        <p>Active Users: <span id="active-users">0</span></p>
-        <p>Pending Users: <span id="pending-users">0</span></p>
-      </div>
-      <div class="card">
-        <h2>Order Stats</h2>
-        <p>Total Orders: <span id="total-orders">0</span></p>
-        <p>Pending Orders: <span id="pending-orders">0</span></p>
-        <p>Completed Orders: <span id="completed-orders">0</span></p>
-      </div>
-      <div class="collaboration-tools">
-        <button id="dashboard-chat-btn">Chat</button>
-        <button id="dashboard-video-btn">Video Conference</button>
-        <button id="dashboard-file-btn">File Sharing</button>
-      </div>
-    </section>
-    
-    <!-- Products Section -->
-    <section id="products" style="display:none;">
-      <h1>Products</h1>
-      <button id="add-product-btn">Add Product</button>
-      <table id="product-table">
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="product-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Users Section -->
-    <section id="users" style="display:none;">
-      <h1>Users</h1>
-      <button id="add-user-btn">Add User</button>
-      <select id="user-role">
-        <option value="admin">Admin</option>
-        <option value="cashier">Cashier</option>
-        <option value="user">User</option>
-      </select>
-      <table id="user-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>First Name</th>
-            <th>Surname</th>
-            <th>Middle Name</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Country</th>
-            <th>State</th>
-            <th>NIN Number</th>
-            <th>Profile Picture</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
-            <th>Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="user-tbody">
-        </tbody>
-      </table>
-      <div class="collaboration-tools">
-        <button></button>
-      </div>
-    </section>
-    
-    <!-- Orders Section -->
-    <section id="orders" style="display:none;">
-      <h1>Orders</h1>
-      <button id="add-order-btn">Add Order</button>
-      <table id="order-table">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="order-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Cart Report Section -->
-    <section id="cart-report" style="display:none;">
-      <h1>Cart Report</h1>
-      <table id="cart-report-table">
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-          </tr>
-        </thead>
-        <tbody id="cart-report-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Wallet Section -->
-    <section id="wallet" style="display:none;">
-      <h1>Wallet</h1>
-      <p id="wallet-balance"></p>
-      <button id="deposit-btn">Deposit</button>
-      <button id="withdraw-btn">Withdraw</button>
-    </section>
-    
-    <!-- Login/Signup Tracking Section -->
-    <section id="login-signup-tracking" style="display:none;">
-      <h1>Login/Signup Tracking</h1>
-      <table id="login-signup-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Username</th>
-            <th>Login/Signup</th>
-          </tr>
-        </thead>
-        <tbody id="login-signup-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Real-time Tracking Section -->
-    <section id="real-time-tracking" style="display:none;">
-      <h1>Real-time Tracking</h1>
-      <select id="real-time-role">
-        <option value="admin">Admin</option>
-        <option value="cashier">Cashier</option>
-        <option value="user">User</option>
-      </select>
-      <table id="real-time-table">
-        <thead>
-          <tr>
-            <th>User ID</th>
-            <th>Username</th>
-            <th>Activity</th>
-            <th>Timestamp</th>
-          </tr>
-        </thead>
-        <tbody id="real-time-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Price Calculator Section -->
-    <section id="price-calculator" style="display:none;">
-      <h1>Price Calculator</h1>
-      <div class="calculator-tools">
-        <label for="product-price">Product Price:</label>
-        <input type="number" id="product-price">
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity">
-        <button id="calculate-price-btn">Calculate Price</button>
-      </div>
-      <p id="calculated-price"></p>
-    </section>
-    
-    <!-- Task Management Section -->
-    <section id="task-management" style="display:none;">
-      <h1>Task Management</h1>
-      <div class="task-tools">
-        <label for="task-name">Task Name:</label>
-        <input type="text" id="task-name">
-        <label for="task-description">Task Description:</label>
-        <textarea id="task-description"></textarea>
-        <button id="add-task-btn">Add Task</button>
-      </div>
-      <table id="task-table">
-        <thead>
-          <tr>
-            <th>Task ID</th>
-            <th>Task Name</th>
-            <th>Task Description</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="task-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-        <!-- Calendar Section -->
-    <section id="calendar" style="display:none;">
-      <h1>Calendar</h1>
-      <div class="calendar-tools">
-        <label for="date">Date:</label>
-        <input type="date" id="date">
-        <button id="add-event-btn">Add Event</button>
-      </div>
-      <div id="calendar-container"></div>
-    </section>
+```html
+```
+
+### Backend (Node.js & Express)
+
+1. **Server Setup**: Install the required packages (`express`, `express-validator`, `multer`).
    
-    
-    <!-- Cashier Performance Section -->
-    <section id="cashier-performance" style="display:none;">
-      <h1>Cashier Performance</h1>
-      <table id="cashier-performance-table">
-        <thead>
-          <tr>
-            <th>Cashier ID</th>
-            <th>Username</th>
-            <th>Transactions</th>
-            <th>Total Sales</th>
-            <th>Average Rating</th>
-          </tr>
-        </thead>
-        <tbody id="cashier-performance-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Daily Transportation Section -->
-    <section id="daily-transportation" style="display:none;">
-      <h1>Daily Transportation</h1>
-      <table id="daily-transportation-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Transportation Mode</th>
-            <th>Distance</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody id="daily-transportation-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Total Revenue Section -->
-    <section id="total-revenue" style="display:none;">
-      <h1>Total Revenue</h1>
-      <p id="total-revenue-amount"></p>
-      <table id="total-revenue-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Revenue</th>
-          </tr>
-        </thead>
-        <tbody id="total-revenue-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Monthly Payment Confirmation Section -->
-    <section id="monthly-payment-confirmation" style="display:none;">
-      <h1>Monthly Payment Confirmation</h1>
-      <table id="monthly-payment-confirmation-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Payment Status</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody id="monthly-payment-confirmation-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Message Collaboration Tools Section -->
-    <section id="message-collaboration-tools" style="display:none;">
-      <h1>Message Collaboration Tools</h1>
-      <div class="message-tools">
-        <input type="text" id="message-input" placeholder="Type a message...">
-        <button id="send-message-btn">Send</button>
-      </div>
-      <div id="message-log"></div>
-    </section>
-    <!-- Line chart -->
-<canvas id="line-chart" width="400" height="200"></canvas>
+   ```bash
+   npm install express express-validator multer
+   ```
 
-<!-- Bar chart -->
-<canvas id="bar-chart" width="400" height="200"></canvas>
+2. **Validation and Submission Logic**:
 
-<!-- Pie chart -->
-<canvas id="pie-chart" width="400" height="200"></canvas>
+   ```javascript
+   const express = require("express");
+   const { body, validationResult } = require("express-validator");
+   const multer = require("multer");
 
-<!-- Doughnut chart -->
-<canvas id="doughnut-chart" width="400" height="200"></canvas>
+   const app = express();
+   app.use(express.json());
+   app.use(express.urlencoded({ extended: true }));
 
-<!-- Polar area chart -->
-<canvas id="polar-area-chart" width="400" height="200"></canvas>
+   const upload = multer({ dest: "uploads/" });
 
-<!-- Radar chart -->
-<canvas id="radar-chart" width="400" height="200"></canvas>
+   // Add Product Route with Validation
+   app.post(
+     "/add-product",
+     upload.single("product-image"),
+     [
+       body("product-name").notEmpty().withMessage("Product Name is required"),
+       body("product-price").isFloat({ gt: 0 }).withMessage("Invalid Price"),
+       body("product-cost").isFloat({ gt: 0 }).withMessage("Invalid Cost"),
+     ],
+     (req, res) => {
+       const errors = validationResult(req);
+       if (!errors.isEmpty()) {
+         return res.status(400).json({ errors: errors.array() });
+       }
+       // Process the form data and save it to the database
+       res.send("Product added successfully!");
+     }
+   );
 
-    <!-- Inventory UI Design Management Section -->
-    <section id="inventory-ui-design-management" style="display:none;">
-      <h1>Inventory UI Design Management</h1>
-      <div class="inventory-ui-design-tools">
-        <button id="create-inventory-btn">Create Inventory</button>
-        <button id="remove-inventory-btn">Remove Inventory</button>
-        <button id="import-inventory-btn">Import Inventory</button>
-        <button id="export-inventory-btn">Export Inventory</button>
-      </div>
-      <table id="inventory-table">
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="inventory-tbody">
-        </tbody>
-      </table>
-    </section>
-    
-    <!-- Blog Creation Section -->
-    <section id="blog-creation" style="display:none;">
-      <h1>Blog Creation</h1>
-      <form id="blog-form">
-        <label for="blog-title">Title:</label>
-        <input type="text" id="blog-title">
-        <label for="blog-content">Content:</label>
-        <textarea id="blog-content"></textarea>
-        <label for="blog-image">Image:</label>
-        <input type="file" id="blog-image">
-        <button id="create-blog-btn">Create Blog</button>
-      </form>
-      <div id="blog-list"></div>
-    </section>
-  </main>
-  
-  <script src="main.js"></script>
+   app.listen(3000, () => console.log("Server running on port 3000"));
+   ```
 
-<style>
-body {
-  font-family: "Lato", sans-serif;
+This setup should provide a cohesive structure, combining the forms, handling validation in both front-end and back-end layers, and simplifying the submission process.
+With SQL instead of MongoDB, we'll adjust the server setup to use an SQL database (e.g., MySQL or PostgreSQL). Below is an updated solution for SQL.
+
+### 1. JSON Configuration for Database and Server Settings
+
+In `config.json`, adjust the configuration to fit SQL settings:
+
+**config.json**
+```json
+{
+  "server": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "database": {
+    "type": "mysql",
+    "host": "localhost",
+    "user": "your_db_user",
+    "password": "your_db_password",
+    "database": "product_db"
+  }
+}
+```
+
+### 2. SQL Database Connection
+
+Using Node.js, connect to the SQL database. We'll use the `mysql2` package, which provides promise-based SQL querying.
+
+```bash
+npm install express mysql2 body-parser express-validator
+```
+
+### 3. SQL Table Creation
+
+Create an SQL table (`products`) with appropriate fields for storing product data. This SQL script can be executed in the SQL database.
+
+```sql
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  product_name VARCHAR(255) NOT NULL,
+  product_category VARCHAR(100),
+  product_price DECIMAL(10, 2) NOT NULL,
+  product_quantity INT NOT NULL,
+  product_description TEXT,
+  vendor VARCHAR(255),
+  supplier VARCHAR(255),
+  promo_type ENUM('percentage', 'fixed', 'bogo'),
+  promo_discount DECIMAL(5, 2),
+  labels JSON,
+  availability_start DATE,
+  availability_end DATE,
+  stock_threshold INT
+);
+```
+
+### 4. Express Server Setup with SQL Integration
+
+Here's the updated `server.js` file that connects to an SQL database and uses SQL commands to add and retrieve products.
+
+**server.js**
+```javascript
+const express = require("express");
+const bodyParser = require("body-parser");
+const mysql = require("mysql2/promise");
+const config = require("./config.json");
+const { body, validationResult } = require("express-validator");
+
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Database connection
+const db = mysql.createPool({
+  host: config.database.host,
+  user: config.database.user,
+  password: config.database.password,
+  database: config.database.database
+});
+
+// Product Add Endpoint
+app.post("/add-product",
+  [
+    body("productName").notEmpty().withMessage("Product Name is required"),
+    body("productPrice").isFloat({ gt: 0 }).withMessage("Price must be greater than zero"),
+    body("productQuantity").isInt({ gt: 0 }).withMessage("Quantity must be an integer greater than zero"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const {
+      productName, productCategory, productPrice, productQuantity, 
+      productDescription, vendor, supplier, promoType, promoDiscount,
+      labels, availabilityStart, availabilityEnd, stockThreshold
+    } = req.body;
+
+    const query = `
+      INSERT INTO products 
+      (product_name, product_category, product_price, product_quantity, product_description, vendor, supplier, promo_type, promo_discount, labels, availability_start, availability_end, stock_threshold)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    try {
+      const [result] = await db.execute(query, [
+        productName, productCategory, productPrice, productQuantity, productDescription, 
+        vendor, supplier, promoType, promoDiscount, JSON.stringify(labels || []), 
+        availabilityStart, availabilityEnd, stockThreshold
+      ]);
+
+      res.status(201).json({ message: "Product added successfully", productId: result.insertId });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Failed to add product" });
+    }
+  }
+);
+
+// Get All Products Endpoint
+app.get("/products", async (req, res) => {
+  try {
+    const [products] = await db.execute("SELECT * FROM products");
+    res.json(products);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch products" });
+  }
+});
+
+app.listen(config.server.port, () => {
+  console.log(`Server running on ${config.server.host}:${config.server.port}`);
+});
+```
+
+### 5. Frontend AJAX Submission (Optional)
+
+This AJAX code on the frontend form allows for submitting data automatically.
+
+```html
+<script>
+  document.getElementById('add-product-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const productData = {};
+    formData.forEach((value, key) => productData[key] = value);
+
+    try {
+      const response = await fetch("/add-product", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(productData)
+      });
+
+      if (response.ok) {
+        alert("Product added successfully!");
+      } else {
+        const errorData = await response.json();
+        alert("Failed to add product: " + errorData.errors.map(e => e.msg).join(", "));
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to submit data.");
+    }
+  });
+</script>
+```
+
+### Summary
+
+- **SQL Database Setup**: SQL table schema created for `products`.
+- **Express Server with SQL**: Connected to SQL with endpoints for adding and fetching products.
+- **Validation**: Using `express-validator` for backend validation.
+- **Frontend Submission**: AJAX request for automatic form data submission. 
+
+This setup should enable you to add products to an SQL database with structured validation and configuration management.To create a more advanced JSON structure for adding a product, we can implemen
+```
+
+### Breakdown of Advanced JSON Configuration
+
+1. **Basic Information**
+   - `productName`, `productCode`, and `sku` are identifiers.
+   - `category` includes nested categories.
+   - `tags` is an array for flexible categorization.
+   - `description` is used for detailed information.
+
+2. **Pricing**
+   - `basePrice` and `currency` represent the product’s cost.
+   - `tax` includes `rate` and `method`.
+   - `promo` section includes promotional information with start and end dates.
+   - `priceHistory` records historical prices for future reference.
+
+3. **Inventory**
+   - `quantity` and `threshold` manage stock.
+   - `warehouseLocation` provides the storage location within a warehouse.
+   - `availability` with `startDate` and `endDate`.
+
+4. **Supplier Information**
+   - `vendor`, `supplier`, and `contact` for supplier management.
+
+5. **Variants**
+   - Supports multiple variants with `variantName`, `priceModifier`, `size`, `dimensions`, and custom `attributes`.
+
+6. **Images**
+   - Array of images with `imageUrl`, `altText`, and a boolean `isPrimary`.
+
+7. **Additional Details**
+   - `labels`, `relatedProducts` to link products, and metadata (`createdBy`, `createdOn`).
+
+8. **Settings**
+   - **Validation Rules**: Defines required fields, file size limits, and price range.
+   - **Storage Config**: Specifies paths for image and backup storage.
+   - **API Config**: Details for API endpoint and headers for requests.
+
+This advanced JSON structure gives you a comprehensive template to handle detailed product data, dynamic configurations, and validation, providing a flexible framework for efficient backend integration.
+
+
+
+
+{
+"productManagement": {
+"product": {
+"baseName": ["Organic Apples", "Bananas", "Almond Milk", "Cheddar Cheese"],
+"categories": ["Fruit", "Vegetable", "Dairy", "Meat"],
+"basePriceRange": {
+"min": 1.99,
+"max": 15.99
+},
+"baseQuantityRange": {
+"min": 50,
+"max": 500
+},
+"baseSizes": ["500g", "1kg", "2kg"],
+"descriptionTemplates": [
+"Fresh {product} from local farms.",
+"{product} harvested with care and quality.",
+"High-quality {product} for daily use.",
+"Natural and pure {product} sourced locally."
+],
+"vendors": ["FreshFarms", "EcoFoods", "GreenValley"],
+"suppliers": ["Local Supplies Inc.", "Farm Direct Ltd.", "Eco Supplier Co."]
+},
+"variants": {
+"enableVariants": true,
+"variantTypes": ["Color", "Size", "Quality"],
+"variantOptions": {
+"Color": ["Red", "Green", "Yellow"],
+"Size": ["Small", "Medium", "Large"],
+"Quality": ["Standard", "Premium", "Organic"]
+},
+"priceAdjustmentRange": {
+"min": 0.10,
+"max": 3.00
+}
+},
+"promo": {
+"enablePromo": true,
+"types": ["percentage", "fixed", "bogo"],
+"discountRange": {
+"minPercentage": 5,
+"maxPercentage": 50,
+"minFixed": 1.00,
+"maxFixed": 10.00
+},
+"dateRange": {
+"startOffsetDays": 0,
+"endOffsetDays": 30
+}
+},
+"labels": ["new", "bestseller", "limited", "featured"],
+"availability": {
+"defaultStartDate": "2024-01-01",
+"availabilityDurationDays": 180,
+"stockThresholdRange": {
+"min": 10,
+"max": 100
+}
+}
+},
+"cart": {
+"maxItemsPerCart": 20,
+"autoDiscountThreshold": 100.00,
+"discounts": [
+{
+"threshold": 50.00,
+"discountPercentage": 5
+},
+{
+"threshold": 100.00,
+"discountPercentage": 10
+}
+]
+},
+"wishlist": {
+"maxItems": 50,
+"autoShareOptions": ["email", "socialMedia", "copyLink"],
+"defaultShareMessage": "Check out my wishlist on our store!"
+},
+"share": {
+"enableSocialSharing": true,
+"platforms": ["Facebook", "Twitter", "Instagram", "WhatsApp"],
+"sh
+areMessageTemplate": "Discover amazing products at our store: {productLink}"
+}
 }
 
-</style>
-<body>
-  <h2>Collapsed Sidebar</h2>
-  <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
-</div>
-
-<script>
-</script>
-   
-</body>
-</html> 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-</style>
-</head>
-<body style="background-color:white;">
+const fs = require('fs');
+const path = require('path');
 
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div> 
-</div>
+// Load JSON configuration
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config', 'product-management.json'), 'utf8'));
+
+// Function to generate a random product
+function generateRandomProduct() {
+const productName = config.productManagement.product.baseName[
+Math.floor(Math.random() * config.productManagement.product.baseName.length)
+];
+const category = config.productManagement.product.categories[
+Math.floor(Math.random() * config.productManagement.product.categories.length)
+];
+const price = (Math.random() * (config.productManagement.product.basePriceRange.max - config.productManagement.product.basePriceRange.min) +
+config.productManagement.product.basePriceRange.min).toFixed(2);
+const quantity = Math.floor(Math.random() * (config.productManagement.product.baseQuantityRange.max - config.productManagement.product.baseQuantityRange.min) +
+config.productManagement.product.baseQuantityRange.min);
+// Continue generating other properties based on the config
+
+// Return a product object
+return {
+productName,
+category,
+price,
+quantity,
+// Additional fields based on config
+};
+}
+
+// Function to save to database
+async function saveToDatabase(product) {
+// Database save logic here using an
+SQL ORM or raw SQL statements
+}
+
 
 
 

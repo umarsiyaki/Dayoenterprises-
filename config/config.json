@@ -1,0 +1,141 @@
+{
+  "productManagement": {
+    "databaseConfig": {
+      "dbType": "SQL",
+      "dbName": "ecommerce_db",
+      "productTable": "products",
+      "variantTable": "product_variants",
+      "inventoryTable": "inventory",
+      "promoTable": "promotions",
+      "wishlistTable": "wishlist",
+      "cartTable": "carts",
+      "usersTable": "users",
+      "connectionSettings": {
+        "host": "localhost",
+        "user": "admin",
+        "password": "password123",
+        "port": 5432
+      }
+    },
+    "fieldsConfig": {
+      "requiredFields": ["productName", "productCode", "basePrice", "quantity"],
+      "uniqueFields": ["productCode", "sku"],
+      "priceRange": { "min": 0.5, "max": 1000.0 },
+      "imageConfig": {
+        "maxFileSize": 2048,
+        "allowedFormats": ["jpg", "png", "gif"],
+        "storagePath": "/server/path/to/images"
+      }
+    },
+    "apiConfig": {
+      "addProductEndpoint": "/api/products/add",
+      "updateProductEndpoint": "/api/products/update",
+      "deleteProductEndpoint": "/api/products/delete",
+      "getProductEndpoint": "/api/products/get",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {token}"
+      }
+    },
+    "audit": {
+      "enableAudit": true,
+      "logTable": "audit_logs",
+      "fields": ["createdBy", "createdOn", "lastModifiedBy", "lastModifiedOn"]
+    }
+  },
+  
+  "cart": {
+    "settings": {
+      "maxItemsPerUser": 50,
+      "sessionTimeoutMinutes": 60,
+      "autoSave": true,
+      "allowGuestCheckout": true,
+      "guestCartLifetimeDays": 7,
+      "discounts": {
+        "allowedDiscounts": ["promo", "bulk"],
+        "promoTable": "cart_promotions",
+        "bulkDiscountThreshold": 5,
+        "bulkDiscountRate": 0.05
+      }
+    },
+    "apiConfig": {
+      "addToCartEndpoint": "/api/cart/add",
+      "removeFromCartEndpoint": "/api/cart/remove",
+      "updateCartEndpoint": "/api/cart/update",
+      "viewCartEndpoint": "/api/cart/view",
+      "checkoutEndpoint": "/api/cart/checkout"
+    },
+    "validationRules": {
+      "requiredFields": ["productId", "quantity"],
+      "quantityRange": { "min": 1, "max": 100 }
+    }
+  },
+  
+  "wishlist": {
+    "settings": {
+      "maxItemsPerUser": 30,
+      "notifications": {
+        "backInStock": true,
+        "priceDrop": true
+      },
+      "shareable": true
+    },
+    "apiConfig": {
+      "addToWishlistEndpoint": "/api/wishlist/add",
+      "removeFromWishlistEndpoint": "/api/wishlist/remove",
+      "viewWishlistEndpoint": "/api/wishlist/view",
+      "shareWishlistEndpoint": "/api/wishlist/share"
+    },
+    "validationRules": {
+      "requiredFields": ["productId"],
+      "maxWishlistItems": 50
+    }
+  },
+  
+  "share": {
+    "socialMedia": {
+      "enabledPlatforms": ["facebook", "twitter", "pinterest", "email"],
+      "defaultMessage": "Check out this product!",
+      "hashtag": "#ecommerceStore",
+      "utmParams": {
+        "utmSource": "social",
+        "utmMedium": "share",
+        "utmCampaign": "product_share"
+      }
+    },
+    "apiConfig": {
+      "shareProductEndpoint": "/api/share/product",
+      "shareWishlistEndpoint": "/api/share/wishlist"
+    }
+  },
+  
+  "notifications": {
+    "email": {
+      "smtpServer": "smtp.example.com",
+      "port": 587,
+      "senderEmail": "noreply@ecommerce.com",
+      "emailTemplates": {
+        "orderConfirmation": "/templates/order_confirmation.html",
+        "wishlistBackInStock": "/templates/back_in_stock.html",
+        "priceDropAlert": "/templates/price_drop.html"
+      }
+    },
+    "sms": {
+      "provider": "Twilio",
+      "accountSid": "your_account_sid",
+      "authToken": "your_auth_token",
+      "fromNumber": "+1234567890",
+      "templates": {
+        "orderConfirmation": "Your order {orderId} has been confirmed!",
+        "wishlistBackInStock": "An item in your wishlist is back in stock!",
+        "priceDropAlert": "An item in your wishlist has a price drop!"
+      }
+    },
+    "pushNotifications": {
+      "enabled": true,
+      "serviceProvider": "Firebase",
+      "apiKey": "firebase_api_key",
+      "topics": ["newProducts", "discounts"]
+    }
+  }
+}
