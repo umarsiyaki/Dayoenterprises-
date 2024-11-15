@@ -1,0 +1,224 @@
+
+
+You said:
+    <section class="add-product">
+      <h2>Add Product</h2>
+      <form id="add-product-form">
+        <div class="form-group">
+          <label for="product-name">Product Name:</label>
+          <input type="text" id="product-name" name="product-name" required>
+        </div>
+        <div class="form-group">
+          <label for="product-category">Product Category:</label>
+          <select id="product-category" name="product-category" required>
+            <option value="">Select Category</option>
+            <option value="fruit">Fruit</option>
+            <option value="vegetable">Vegetable</option>
+            <option value="dairy">Dairy</option>
+            <option value="meat">Meat</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="product-price">Product Price:</label>
+          <input type="number" id="product-price" name="product-price" required>
+        </div>
+        <div class="form-group">
+          <label for="product-size">Product Size:</label>
+          <input type="text" id="product-size" name="product-size" required>
+        </div>
+        <div class="form-group">
+          <label for="product-image">Product Image:</label>
+          <input type="file" id="product-image" name="product-image" required>
+        </div>
+        <div class="form-group">
+          <label for="product-description">Product Description:</label>
+          <textarea id="product-description" name="product-description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="product-quantity">Product Quantity:</label>
+          <input type="number" id="product-quantity" name="product-quantity" required>
+        </div>
+        <div class="form-group">
+          <label for="product-vendor">Product Vendor:</label>
+          <input type="text" id="product-vendor" name="product-vendor" required>
+        </div>
+        <div class="form-group">
+          <label for="product-supplier">Product Supplier:</label>
+          <input type="text" id="product-supplier" name="product-supplier" required>
+        </div>
+
+        <!-- Product Variants Section -->
+        <div class="form-group">
+          <label>Product Variants:</label>
+          <div id="variant-container"></div>
+          <button type="button" id="add-variant">Add Variant</button>
+        </div>
+
+        <!-- Promo Discount Section -->
+        <div class="form-group">
+          <label for="promo-type">Promo Discount Type:</label>
+          <select id="promo-type" name="promo-type">
+            <option value="percentage">Percentage</option>
+            <option value="fixed">Fixed Amount</option>
+            <option value="bogo">Buy One Get One (BOGO)</option>
+          </select>
+          <label for="promo-discount">Promo Discount Value:</label>
+          <input type="number" id="promo-discount" name="promo-discount" placeholder="Discount value">
+          <label for="promo-start">Promo Start Date:</label>
+          <input type="date" id="promo-start" name="promo-start">
+          <label for="promo-end">Promo End Date:</label>
+          <input type="date" id="promo-end" name="promo-end">
+        </div>
+
+        <!-- Labels Section -->
+        <div class="form-group">
+          <label for="product-labels">Labels:</label>
+          <select id="product-labels" name="product-labels" multiple>
+            <option value="new">New</option>
+            <option value="bestseller">Bestseller</option>
+            <option value="limited">Limited Edition</option>
+            <option value="featured">Featured</option>
+          </select>
+        </div>
+
+        <!-- Product Availability -->
+        <div class="form-group">
+          <label for="availability-start">Available From:</label>
+          <input type="date" id="availability-start" name="availability-start">
+          <label for="availability-end">Available Until:</label>
+          <input type="date" id="availability-end" name="availability-end">
+          <label for="stock-threshold">Stock Threshold Notification:</label>
+          <input type="number" id="stock-threshold" name="stock-threshold" placeholder="Notify at stock level">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Product</button>
+
+      </form>
+    </section>
+    
+    
+       <div class="content-page">
+     <div class="container-fluid add-form-list">
+       <div class="row">
+         <div class="col-sm-12">
+           <div class="card">
+             <div class="card-header d-flex justify-content-between">
+               <div class="header-title">
+                 <h4 class="card-title">Add Product</h4>
+               </div>
+             </div>
+             <div class="card-body">
+               <form action="page-list-product.html" data-toggle="validator">
+                 <div class="row">
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <label>Product Type *</label>
+                       <select name="type" class="selectpicker form-control" data-style="py-0">
+                         <option>Standard</option>
+                         <option>Combo</option>
+                         <option>Digital</option>
+                         <option>Service</option>
+                       </select>
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Name *</label>
+                       <input type="text" class="form-control" placeholder="Enter Name" data-errors="Please Enter Name." required>
+                       <div class="help-block with-errors"></div>
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Code *</label>
+                       <input type="text" class="form-control" placeholder="Enter Code" data-errors="Please Enter Code." required>
+                       <div class="help-block with-errors"></div>
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Barcode Symbology *</label>
+                       <select name="type" class="selectpicker form-control" data-style="py-0">
+                         <option>CREM01</option>
+                         <option>UM01</option>
+                         <option>SEM01</option>
+                         <option>COF01</option>
+                         <option>FUN01</option>
+                         <option>DIS01</option>
+                         <option>NIS01</option>
+                       </select>
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Category *</label>
+                       <select name="type" class="selectpicker form-control" data-style="py-0">
+                         <option>Beauty</option>
+                         <option>Grocery</option>
+                         <option>Food</option>
+                         <option>Furniture</option>
+                         <option>Shoes</option>
+                         <option>Frames</option>
+                         <option>Jewellery</option>
+                       </select>
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Cost *</label>
+                       <input type="text" class="form-control" placeholder="Enter Cost" data-errors="Please Enter Cost." required>
+                       <div class="help-block with-errors"></div>
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Price *</label>
+                       <input type="text" class="form-control" placeholder="Enter Price" data-errors="Please Enter Price." required>
+                       <div class="help-block with-errors"></div>
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <label>Tax Method *</label>
+                       <select name="type" class="selectpicker form-control" data-style="py-0">
+                         <option>Exclusive</option>
+                         <option>Inclusive</option>
+                       </select>
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <label>Quantity *</label>
+                       <input type="text" class="form-control" placeholder="Enter Quantity" required>
+                       <div class="help-block with-errors"></div>
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <label>Image</label>
+                       <input type="file" class="form-control image-file" name="pic" accept="image/*">
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <label>Description / Product Details</label>
+                       <textarea class="form-control" rows="4"></textarea>
+                     </div>
+                   </div>
+                 </div>
+                 <button type="submit" class="btn btn-primary mr-2">Add Product</button>
+                 <button type="reset" class="btn btn-danger">Reset</button>
+               </form>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- Page end  -->
+     </div>
+   </div>
+   </div>
+
+
+So merge the two files of add product.html.
+
+The you should provide both frontend and back end validation and submission

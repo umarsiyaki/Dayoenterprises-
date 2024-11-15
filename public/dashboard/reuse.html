@@ -17,34 +17,7 @@ Here's a merged version of the two forms into a single HTML structure with a uni
 
    ```javascript
    const express = require("express");
-   const { body, validationResult } = require("express-validator");
-   const multer = require("multer");
-
-   const app = express();
-   app.use(express.json());
-   app.use(express.urlencoded({ extended: true }));
-
-   const upload = multer({ dest: "uploads/" });
-
-   // Add Product Route with Validation
-   app.post(
-     "/add-product",
-     upload.single("product-image"),
-     [
-       body("product-name").notEmpty().withMessage("Product Name is required"),
-       body("product-price").isFloat({ gt: 0 }).withMessage("Invalid Price"),
-       body("product-cost").isFloat({ gt: 0 }).withMessage("Invalid Cost"),
-     ],
-     (req, res) => {
-       const errors = validationResult(req);
-       if (!errors.isEmpty()) {
-         return res.status(400).json({ errors: errors.array() });
-       }
-       // Process the form data and save it to the database
-       res.send("Product added successfully!");
-     }
-   );
-
+   
    app.listen(3000, () => console.log("Server running on port 3000"));
    ```
 
@@ -85,22 +58,7 @@ npm install express mysql2 body-parser express-validator
 Create an SQL table (`products`) with appropriate fields for storing product data. This SQL script can be executed in the SQL database.
 
 ```sql
-CREATE TABLE products (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  product_name VARCHAR(255) NOT NULL,
-  product_category VARCHAR(100),
-  product_price DECIMAL(10, 2) NOT NULL,
-  product_quantity INT NOT NULL,
-  product_description TEXT,
-  vendor VARCHAR(255),
-  supplier VARCHAR(255),
-  promo_type ENUM('percentage', 'fixed', 'bogo'),
-  promo_discount DECIMAL(5, 2),
-  labels JSON,
-  availability_start DATE,
-  availability_end DATE,
-  stock_threshold INT
-);
+
 ```
 
 ### 4. Express Server Setup with SQL Integration
@@ -268,92 +226,7 @@ This advanced JSON structure gives you a comprehensive template to handle detail
 
 
 
-{
-"productManagement": {
-"product": {
-"baseName": ["Organic Apples", "Bananas", "Almond Milk", "Cheddar Cheese"],
-"categories": ["Fruit", "Vegetable", "Dairy", "Meat"],
-"basePriceRange": {
-"min": 1.99,
-"max": 15.99
-},
-"baseQuantityRange": {
-"min": 50,
-"max": 500
-},
-"baseSizes": ["500g", "1kg", "2kg"],
-"descriptionTemplates": [
-"Fresh {product} from local farms.",
-"{product} harvested with care and quality.",
-"High-quality {product} for daily use.",
-"Natural and pure {product} sourced locally."
-],
-"vendors": ["FreshFarms", "EcoFoods", "GreenValley"],
-"suppliers": ["Local Supplies Inc.", "Farm Direct Ltd.", "Eco Supplier Co."]
-},
-"variants": {
-"enableVariants": true,
-"variantTypes": ["Color", "Size", "Quality"],
-"variantOptions": {
-"Color": ["Red", "Green", "Yellow"],
-"Size": ["Small", "Medium", "Large"],
-"Quality": ["Standard", "Premium", "Organic"]
-},
-"priceAdjustmentRange": {
-"min": 0.10,
-"max": 3.00
-}
-},
-"promo": {
-"enablePromo": true,
-"types": ["percentage", "fixed", "bogo"],
-"discountRange": {
-"minPercentage": 5,
-"maxPercentage": 50,
-"minFixed": 1.00,
-"maxFixed": 10.00
-},
-"dateRange": {
-"startOffsetDays": 0,
-"endOffsetDays": 30
-}
-},
-"labels": ["new", "bestseller", "limited", "featured"],
-"availability": {
-"defaultStartDate": "2024-01-01",
-"availabilityDurationDays": 180,
-"stockThresholdRange": {
-"min": 10,
-"max": 100
-}
-}
-},
-"cart": {
-"maxItemsPerCart": 20,
-"autoDiscountThreshold": 100.00,
-"discounts": [
-{
-"threshold": 50.00,
-"discountPercentage": 5
-},
-{
-"threshold": 100.00,
-"discountPercentage": 10
-}
-]
-},
-"wishlist": {
-"maxItems": 50,
-"autoShareOptions": ["email", "socialMedia", "copyLink"],
-"defaultShareMessage": "Check out my wishlist on our store!"
-},
-"share": {
-"enableSocialSharing": true,
-"platforms": ["Facebook", "Twitter", "Instagram", "WhatsApp"],
-"sh
-areMessageTemplate": "Discover amazing products at our store: {productLink}"
-}
-}
+
 
 
 
@@ -396,3 +269,296 @@ SQL ORM or raw SQL statements
 
 
 
+
+To incorporate purchasing functionality, profile updates, blog creation with role-based access, as well as blog reading, comments, ratings, likes, and sharing, we’ll extend our `inventory.json` configuration and add some API endpoints, SQL schema updates, and front-end HTML features. Here’s how we can implement these features step-by-step:
+
+### 1. Enhanced Configuration File (inventory.json)
+
+Add configurations for blog management, rating, comments, and purchase settings:
+
+```json
+{
+  "authentication": {
+    "enable2FA": true,
+    "2FAMethods": ["email", "sms", "authenticatorApp"]
+  },
+  "roles": {
+    "admin": {
+      "permissions": ["addProduct", "editProduct", "deleteProduct", "manageUsers", "viewReports", "manageInventory", "createBlog", "editBlog", "deleteBlog"],
+      "maxLoginAttempts": 5
+    },
+    "cashier": {
+      "permissions": ["processOrders", "viewInventory", "viewReports", "createBlog"],
+      "maxLoginAttempts": 5
+    },
+    "user": {
+      "permissions": ["viewProducts", "addToCart", "checkout", "manageProfile", "viewOrderHistory", "comment", "rate", "like", "share"],
+      "maxLoginAttempts": 5
+    },
+    "creator": {
+      "permissions": ["createBlog", "editBlog", "deleteBlog"]
+    }
+  },
+  "profileManagement": {
+    "editableFields": ["email", "password", "address", "phone", "profilePicture"],
+    "requiredFields": ["email", "password", "phone"],
+    "settings": {
+      "maxProfileImageSizeMB": 5,
+      "minPasswordLength": 8
+    }
+  },
+  "inventory": {
+    "products": [
+      {
+        "productName": "Organic Apples",
+        "productCategory": "Fruit",
+        "productPrice": 4.99,
+        "productQuantity": 100,
+        "productSize": "1kg",
+        "productDescription": "Fresh organic apples from local farms.",
+        "productVendor": "FreshFarms",
+        "productSupplier": "Local Supplies Inc.",
+        "productVariants": [
+          { "variantName": "Red Apples", "variantPrice": 5.49, "variantSize": "1kg" },
+          { "variantName": "Green Apples", "variantPrice": 5.29, "variantSize": "1kg" }
+        ],
+        "promo": { "promoType": "percentage", "promoDiscount": 10, "promoStart": "2024-01-01", "promoEnd": "2024-01-15" },
+        "productLabels": ["new", "bestseller"],
+        "availability": { "startDate": "2024-01-01", "endDate": "2024-06-01" },
+        "stockThreshold": 10
+      }
+    ]
+  },
+  "cart": {
+    "maxItemsPerCart": 20,
+    "autoDiscountThreshold": 100.00,
+    "discounts": [
+      { "threshold": 50.00, "discountPercentage": 5 },
+      { "threshold": 100.00, "discountPercentage": 10 }
+    ]
+  },
+  "purchase": {
+    "allowGuestCheckout": false,
+    "returnPolicyDays": 30,
+    "taxRatePercentage": 7.5
+  },
+  "blogManagement": {
+    "blogCreationRoles": ["admin", "creator", "cashier"],
+    "maxPostLength": 1000,
+    "maxCommentsPerPost": 50,
+    "allowRatings": true,
+    "allowComments": true,
+    "allowLikes": true,
+    "shareOptions": ["facebook", "twitter", "email"]
+  },
+  "ratingSystem": {
+    "maxRating": 5,
+    "allowAnonymousRatings": false
+  }
+}
+```
+
+### 2. SQL Database Schema Updates
+
+Add tables for managing blogs, comments, likes, ratings, and orders.
+
+```sql
+CREATE TABLE blogs (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    author_id INT,
+    title VARCHAR(255),
+    content TEXT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (author_id) REFERENCES users(id)
+);
+
+CREATE TABLE comments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    blog_id INT,
+    user_id INT,
+    content TEXT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (blog_id) REFERENCES blogs(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE ratings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT,
+    user_id INT,
+    rating TINYINT CHECK (rating >= 1 AND rating <= 5),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE likes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    blog_id INT,
+    user_id INT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (blog_id) REFERENCES blogs(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    totalAmount DECIMAL(10, 2),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'completed', 'cancelled'),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+```
+
+### 3. API Endpoints in Node.js/Express
+
+Create routes for managing blogs, handling comments, likes, ratings, purchases, and updating profiles.
+
+#### Example Endpoints
+
+- **Add a Blog**:
+
+  ```javascript
+  app.post('/api/blogs/add', (req, res) => {
+    const { author_id, title, content } = req.body;
+    const query = 'INSERT INTO blogs (author_id, title, content) VALUES (?, ?, ?)';
+    connection.query(query, [author_id, title, content], (error) => {
+      if (error) return res.status(500).send(error);
+      res.status(201).json({ message: 'Blog created successfully' });
+    });
+  });
+  ```
+
+- **Comment on a Blog**:
+
+  ```javascript
+  app.post('/api/comments/add', (req, res) => {
+    const { blog_id, user_id, content } = req.body;
+    const query = 'INSERT INTO comments (blog_id, user_id, content) VALUES (?, ?, ?)';
+    connection.query(query, [blog_id, user_id, content], (error) => {
+      if (error) return res.status(500).send(error);
+      res.status(201).json({ message: 'Comment added successfully' });
+    });
+  });
+  ```
+
+- **Rate a Product**:
+
+  ```javascript
+  app.post('/api/ratings/add', (req, res) => {
+    const { product_id, user_id, rating } = req.body;
+    const query = 'INSERT INTO ratings (product_id, user_id, rating) VALUES (?, ?, ?)';
+    connection.query(query, [product_id, user_id, rating], (error) => {
+      if (error) return res.status(500).send(error);
+      res.status(201).json({ message: 'Rating submitted successfully' });
+    });
+  });
+  ```
+
+- **Update Profile**:
+
+  ```javascript
+  app.put('/api/profile/update', (req, res) => {
+    const { user_id, email, password, phone, profilePicture } = req.body;
+    const query = 'UPDATE users SET email = ?, password = ?, phone = ?, profilePicture = ? WHERE id = ?';
+    connection.query(query, [email, password, phone, profilePicture, user_id], (error) => {
+      if (error) return res.status(500).send(error);
+      res.status(200).json({ message: 'Profile updated successfully' });
+    });
+  });
+  ```
+
+### 4. Front-End Components (HTML & JavaScript)
+
+#### Blog Creation and Display
+
+- **Blog Editor (For Admin, Cashier, and Creator Roles)**:
+
+  ```html
+  <div id="blog-editor" style="display:none;">
+    <input type="text" id="blog-title" placeholder="Blog Title" required>
+    <textarea id="blog-content" placeholder="Write your content here..." maxlength="1000"></textarea>
+    <button onclick="createBlog()">Post Blog</button>
+  </div>
+  ```
+
+  **JavaScript**:
+
+  ```javascript
+  function createBlog() {
+    const title = document.getElementById("blog-title").value;
+    const content = document.getElementById("blog-content").value;
+
+    fetch('/api/blogs/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ author_id: currentUserId, title, content })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message))
+    .catch(error => console.error('Error:', error));
+  }
+  ```
+
+- **Comment Section**:
+
+  ```html
+  <div id="comment-section">
+    <textarea id="comment-content" placeholder="Add a comment..."></textarea>
+    <button onclick="addComment(blogId)">Comment</button>
+  </div>
+  ```
+
+  **JavaScript**:
+
+  ```javascript
+  function addComment(blogId) {
+    const content = document.getElementById("comment-content").value;
+
+    fetch('/api/comments/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ blog_id: blogId, user
+
+_id: currentUserId, content })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message))
+    .catch(error => console.error('Error:', error));
+  }
+  ```
+
+#### Rating and Like Functionality
+
+```javascript
+function rateProduct(productId, rating) {
+  fetch('/api/ratings/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product_id: productId, user_id: currentUserId, rating })
+  })
+  .then(response => response.json())
+  .then(data => alert(data.message))
+  .catch(error => console.error('Error:', error));
+}
+
+function likeBlog(blogId) {
+  fetch('/api/likes/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ blog_id: blogId, user_id: currentUserId })
+  })
+  .then(response => response.json())
+  .then(data => alert(data.message))
+  .catch(error => console.error('Error:', error));
+}
+```
+
+#### Purchase Flow and Checkout
+
+1. **Add to Cart**: Standard cart functionality.
+2. **Checkout**: Verify user profile and complete payment based on database info.
+
+---
+
+These components, API endpoints, and front-end functionalities will work together to create a fully functional e-commerce site with user and role management, profile updates, blog functionality, and product interactions like ratings, comments, and purchasing.

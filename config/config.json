@@ -23,8 +23,8 @@
       "priceRange": { "min": 0.5, "max": 1000.0 },
       "imageConfig": {
         "maxFileSize": 2048,
-        "allowedFormats": ["jpg", "png", "gif"],
-        "storagePath": "/server/path/to/images"
+        "allowedFormats": ["jpg", "png", "gif", "webp", "jpeg"],
+        "storagePath": "../public/images"
       }
     },
     "apiConfig": {
@@ -40,13 +40,13 @@
     "audit": {
       "enableAudit": true,
       "logTable": "audit_logs",
-      "fields": ["createdBy", "createdOn", "lastModifiedBy", "lastModifiedOn"]
+      "fields": ["productId", "createdBy", "createdOn", "lastModifiedBy", "lastModifiedOn", "stocks"]
     }
   },
   
   "cart": {
     "settings": {
-      "maxItemsPerUser": 50,
+      "maxItemsPerUser": 150,
       "sessionTimeoutMinutes": 60,
       "autoSave": true,
       "allowGuestCheckout": true,

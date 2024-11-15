@@ -350,13 +350,13 @@
                                                   <a href="../backend/ui-pagination.html">
                                                       <i class="las la-minus"></i><span>Pagination</span>
                                                   </a>
-                                              </li>
-                                              <li class="">
+                                   </li>
+                                   <li class="">
                                                   <a href="../backend/ui-popovers.html">
                                                       <i class="las la-minus"></i><span>Popovers</span>
                                                   </a>
-                                              </li>
-                                              <li class="">
+                                     </li>
+                                <li class="">
                                                   <a href="../backend/ui-progressbars.html">
                                                       <i class="las la-minus"></i><span>Progressbars</span>
                                                   </a>
@@ -864,126 +864,146 @@
                   </div>
               </div>
           </div>
-      </div>      <div class="content-page">
-     <div class="container-fluid add-form-list">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="header-title">
-                            <h4 class="card-title">Add Product</h4>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <form action="page-list-product.html" data-toggle="validator">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Product Type *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>Standard</option>
-                                            <option>Combo</option>
-                                            <option>Digital</option>
-                                            <option>Service</option>
-                                        </select>
-                                    </div> 
-                                </div>  
-                                <div class="col-md-6">                      
-                                    <div class="form-group">
-                                        <label>Name *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Name" data-errors="Please Enter Name." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>    
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Code *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Code" data-errors="Please Enter Code." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div> 
-                                <div class="col-md-6"> 
-                                    <div class="form-group">
-                                        <label>Barcode Symbology *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>CREM01</option>
-                                            <option>UM01</option>
-                                            <option>SEM01</option>
-                                            <option>COF01</option>
-                                            <option>FUN01</option>
-                                            <option>DIS01</option>
-                                            <option>NIS01</option>
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Category *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>Beauty</option>
-                                            <option>Grocery</option>
-                                            <option>Food</option>
-                                            <option>Furniture</option>
-                                            <option>Shoes</option>
-                                            <option>Frames</option>
-                                            <option>Jewellery</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Cost *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Cost" data-errors="Please Enter Cost." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Price *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Price" data-errors="Please Enter Price." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Tax Method *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>Exclusive</option>
-                                            <option>Inclusive</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <div class="form-group">
-                                        <label>Quantity *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Quantity" required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" class="form-control image-file" name="pic" accept="image/*">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Description / Product Details</label>
-                                        <textarea class="form-control" rows="4"></textarea>
-                                    </div>
-                                </div>
-                            </div>                            
-                            <button type="submit" class="btn btn-primary mr-2">Add Product</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
-                        </form>
-                    </div>
+      </div>     <section class="content-page add-product">
+  <div class="container-fluid add-form-list">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h4 class="card-title">Add Product</h4>
+          </div>
+          <div class="card-body">
+            <form id="add-product-form" data-toggle="validator" enctype="multipart/form-data">
+              <div class="row">
+                
+                <!-- Product Details -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Product Name *</label>
+                    <input type="text" class="form-control" id="product-name" name="product-name" placeholder="Enter Name" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
                 </div>
-            </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Product Category *</label>
+                    <select class="form-control selectpicker" id="product-category" name="product-category" data-style="py-0" required>
+                      <option value="">Select Category</option>
+                      <option value="fruit">Fruit</option>
+                      <option value="vegetable">Vegetable</option>
+                      <option value="dairy">Dairy</option>
+                      <option value="meat">Meat</option>
+                      <option value="beauty">Beauty</option>
+                      <option value="furniture">Furniture</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Product Code *</label>
+                    <input type="text" class="form-control" id="product-code" placeholder="Enter Code" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Barcode Symbology *</label>
+                    <select class="form-control selectpicker" id="barcode-symbology" data-style="py-0">
+                      <option>CREM01</option>
+                      <option>UM01</option>
+                      <option>SEM01</option>
+                      <option>COF01</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Pricing and Quantity -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Product Price *</label>
+                    <input type="number" class="form-control" id="product-price" name="product-price" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Quantity *</label>
+                    <input type="number" class="form-control" id="product-quantity" name="product-quantity" required>
+                  </div>
+                </div>
+
+                <!-- Product Image and Description -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Product Image *</label>
+                    <input type="file" class="form-control" id="product-image" name="product-image" required>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Description / Product Details</label>
+                    <textarea class="form-control" id="product-description" name="product-description" rows="4"></textarea>
+                  </div>
+                </div>
+
+                <!-- Product Variants -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Product Variants:</label>
+                    <div id="variant-container"></div>
+                    <button type="button" class="btn btn-secondary" id="add-variant">Add Variant</button>
+                  </div>
+                </div>
+
+                <!-- Promo Section -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Promo Discount Type:</label>
+                    <select class="form-control" id="promo-type" name="promo-type">
+                      <option value="percentage">Percentage</option>
+                      <option value="fixed">Fixed Amount</option>
+                      <option value="bogo">Buy One Get One (BOGO)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Promo Discount Value:</label>
+                    <input type="number" class="form-control" id="promo-discount" name="promo-discount">
+                  </div>
+                </div>
+
+                <!-- Availability -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Available From:</label>
+                    <input type="date" class="form-control" id="availability-start" name="availability-start">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Available Until:</label>
+                    <input type="date" class="form-control" id="availability-end" name="availability-end">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submission Buttons -->
+              <button type="submit" class="btn btn-primary">Add Product</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
+            </form>
+          </div>
         </div>
-        <!-- Page end  -->
-    </div>
       </div>
     </div>
+  </div>
+</section>
+
     <!-- Wrapper End-->
     <footer class="iq-footer">
             <div class="container-fluid">

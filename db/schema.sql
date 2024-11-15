@@ -13,18 +13,24 @@ CREATE TABLE users (
 
 -- *Products Table*
 CREATE TABLE products (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255),
+  category VARCHAR(255),
+  price DECIMAL(10, 2),
+  quantity INT,
+  size VARCHAR(50),
   description TEXT,
-  price DECIMAL(10, 2) NOT NULL,
-  quantity INT NOT NULL DEFAULT 0,
-  category_id INT,
-  brand VARCHAR(100),
-  rating DECIMAL(3, 2) DEFAULT 0,
-  image VARCHAR(200),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (category_id) REFERENCES categories(id)
+  vendor VARCHAR(255),
+  supplier VARCHAR(255),
+  promoType VARCHAR(50),
+  promoDiscount DECIMAL(5, 2),
+  promoStart DATE,
+  promoEnd DATE,
+  stockThreshold INT,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
 
 -- *Categories Table*
 CREATE TABLE categories (
