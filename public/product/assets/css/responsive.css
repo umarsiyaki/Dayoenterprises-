@@ -332,7 +332,7 @@
 	.home4-fullwidth .slideshow__text-content { margin-top:100px; }
 	.home4-fullwidth .slideshow .slideshow__title { font-size:34px; }
 	.home4-fullwidth .slideshow .slideshow__subtitle { font-size:13px; display:block; margin-bottom:10px; }
-	.home4-fullwidth .slideshow .btn { font-size:12px; padding:5px 10px; display:inline-block; }
+	.home4-fullwidth .slideshow .btn { font-size:12px; padding:5px 5px; display:inline-block; }
 	
 	.quote-wraper { padding:20px 10px; }
 	.quote-wraper .quotes-slider blockquote { font-size:13px; line-height:23px; }

@@ -10,41 +10,15 @@
 <meta name="description" content="description">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicon -->
-<link rel="shortcut icon" href="assets/images/favicon.png" />
+<link rel="shortcut icon" href="images/logo.png" />
 <!-- Plugins CSS -->
 <link rel="stylesheet" href="assets/css/plugins.css">
 <!-- Bootstap CSS -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <!-- Main Style CSS -->
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/productcard.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
-<style>
-    .card .h-100{
-        align-self: center;
-        float: right;
-        justify-content: flex-start;
-    }
-    .col-md-4 .mb-4{
-      min-width: none;
-      width: 45px;
-      height: 68px;
-      align-items: center;
-      text-align: center;
-      
-  
-    }
-    .card-img-top{
-      width: 205px;
-      height: 204px;
-      align-content: center;
-      margin-right: 20px;
-      margin-left: 85px; 
-      padding: 6PX;
-      border-radius: 45PX;
-      border-color: blue;
-  
-    }
-  </style>
 </head>
 <body class="template-blog belle">
 <div class="pageWrapper">
@@ -498,34 +472,42 @@
         </ul>
     </section>
 
-
-<div class="product-card-container">
+    <!-- Product Cards Section -->
+    <section class="products">
+        <h2>Viju Products</h2>
+        <!-- Product Container -->
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- Product Cards Section -->
+    <section class="products">
+        <h2>Viju Products</h2>
+        <!-- Product Container -->
+<div class="container">
+  <div class="row justify-content-center">
   <!-- Bigi Cola 330ml --><!-- Bigi Cherry Berry -->
 <div class="product-card" id="BIGI001" data-category="fruit" data-vendor="Bigi" data-supplier="Oladayo">
 <img src="../images/bigi-cherib.jpeg" alt="Bigi Cherry Berry" class="product-image">
 <h3>Bigi Cherry Berry</h3>
 <p>Price: ₦3100</p>
-<p>Size: 500ml</p>
-<p>Vendor: Bigi</p>
-<p>Supplier: Oladayo</p>
-<div class="product-rating">
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-regular fa-star"></i>
-<i class="fa-regular fa-star"></i>
-</div>
-<div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
-<i class="fa-solid fa-shopping-cart"></i> Add to Cart
-</button>
-<button class="btn btn-secondary" onclick="addToWishlist()">
-<i class="fa-regular fa-heart"></i> Add to Wishlist
-</button>
-<button class="btn btn-success" onclick="checkout()">
-<i class="fa-solid fa-check"></i> Checkout
-</button>
-</div>
+<p>Size: 500ml</p>              <div class="product-review">
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star-o"></i>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart()">
+                  <i class="icon anm anm-bag-l"></i>
+                </button>
+                <button class="btn btn-secondary" onclick="addToWishlist()">
+                  <i class="icon anm anm-heart-l"></i>
+                </button>
+                <button class="btn btn-success" onclick="checkout()">
+                  <i class="icon anm anm-random-r"></i>
+                </button>
+              </div>
 <div class="product-modal" id="BIGI001-modal">
 <!-- Product details modal content -->
 </div>
@@ -536,57 +518,55 @@
 <img src="../images/bigi-ginger.jpeg" alt="Bigi Ginger" class="product-image">
 <h3>Bigi Ginger</h3>
 <p>Price: ₦2700</p>
-<p>Size: 300ml</p>
-<p>Vendor: Bigi</p>
-<p>Supplier: Oladayo</p>
-<div class="product-rating">
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-regular fa-star"></i>
-<i class="fa-regular fa-star"></i>
-</div>
-<div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
-<i class="fa-solid fa-shopping-cart"></i> Add to Cart
-</button>
-<button class="btn btn-secondary" onclick="addToWishlist()">
-<i class="fa-regular fa-heart"></i> Add to Wishlist
-</button>
-<button class="btn btn-success" onclick="checkout()">
-<i class="fa-solid fa-check"></i> Checkout
-</button>
-</div>
+<p>Size: 300ml</p>              <div class="product-review">
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star-o"></i>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart()">
+                  <i class="icon anm anm-bag-l"></i>
+                </button>
+                <button class="btn btn-secondary" onclick="addToWishlist()">
+                  <i class="icon anm anm-heart-l"></i>
+                </button>
+                <button class="btn btn-success" onclick="checkout()">
+                  <i class="icon anm anm-random-r"></i>
+                </button>
+              </div>
 <div class="product-modal" id="BIGI002-modal">
-<!-- Product
-[11/2, 01:55] Meta AI: Here's the continuation of bigi.html:
+<!-- Product-->
+</div>
+</div>
+
 
 <!-- Bigi Lime -->
 <div class="product-card" id="BIGI003" data-category="fruit" data-vendor="Bigi" data-supplier="Oladayo">
 <img src="../images/bigi-lime.jpeg" alt="Bigi Lime" class="product-image">
 <h3>Bigi Lime</h3>
 <p>Price: ₦2700</p>
-<p>Size: 300ml</p>
-<p>Vendor: Bigi</p>
-<p>Supplier: Oladayo</p>
-<div class="product-rating">
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-regular fa-star"></i>
-<i class="fa-regular fa-star"></i>
-</div>
-<div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
-<i class="fa-solid fa-shopping-cart"></i> Add to Cart
-</button>
-<button class="btn btn-secondary" onclick="addToWishlist()">
-<i class="fa-regular fa-heart"></i> Add to Wishlist
-</button>
-<button class="btn btn-success" onclick="checkout()">
-<i class="fa-solid fa-check"></i> Checkout
-</button>
-</div>
+<p>Size: 300ml</p>              <div class="product-review">
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star-o"></i>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart()">
+                  <i class="icon anm anm-bag-l"></i>
+                </button>
+                <button class="btn btn-secondary" onclick="addToWishlist()">
+                  <i class="icon anm anm-heart-l"></i>
+                </button>
+                <button class="btn btn-success" onclick="checkout()">
+                  <i class="icon anm anm-random-r"></i>
+                </button>
+              </div>
 <div class="product-modal" id="BIGI003-modal">
 <!-- Product details modal content -->
 </div>
@@ -597,27 +577,25 @@
 <img src="../images/big-orange.jpeg" alt="Bigi Orange" class="product-image">
 <h3>Bigi Orange</h3>
 <p>Price: ₦3100</p>
-<p>Size: 500ml</p>
-<p>Vendor: Bigi</p>
-<p>Supplier: Oladayo</p>
-<div class="product-rating">
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-regular fa-star"></i>
-<i class="fa-regular fa-star"></i>
-</div>
-<div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
-<i class="fa-solid fa-shopping-cart"></i> Add to Cart
-</button>
-<button class="btn btn-secondary" onclick="addToWishlist()">
-<i class="fa-regular fa-heart"></i> Add to Wishlist
-</button>
-<button class="btn btn-success" onclick="checkout()">
-<i class="fa-solid fa-check"></i> Checkout
-</button>
-</div>
+<p>Size: 500ml</p>              <div class="product-review">
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star"></i>
+                <i class="font-13 fa fa-star-o"></i>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart()">
+                  <i class="icon anm anm-bag-l"></i>
+                </button>
+                <button class="btn btn-secondary" onclick="addToWishlist()">
+                  <i class="icon anm anm-heart-l"></i>
+                </button>
+                <button class="btn btn-success" onclick="checkout()">
+                  <i class="icon anm anm-random-r"></i>
+                </button>
+              </div>
 <div class="product-modal" id="BIGI004-modal">
 <!-- Product details modal content -->
 </div>
@@ -625,7 +603,9 @@
 
 </div>
 
-
+</div>
+  <!--Tab to edit-->
+<//div>
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
