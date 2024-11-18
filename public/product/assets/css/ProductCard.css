@@ -3,12 +3,13 @@
 
 .product-card {
     width: 460px;
+    height: 280px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 1px;
+    padding: 5px;
+    margin: 2px;
     transition: transform 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -16,17 +17,19 @@
 }
 
 .product-image {
-    width: 105px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     margin-bottom: 5px;
     border-radius: 10px;
     padding: 1 0 0 1;
     overflow: hidden;
 }
-
+.product-card h3 {
+  font-size: 14px;
+}
 .product-rating {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .product-actions {

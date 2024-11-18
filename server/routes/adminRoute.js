@@ -46,11 +46,11 @@ router.put('/products/:id', (req, res) => {
     const productId = req.params.id;
     const query = `
         UPDATE products 
-        SET name = ?, price = ?, size = ?, category = ?, stock = ?, rating = ?, image = ?, description = ?, brand = ?, discount = ?
+        SET name = ?, price = ?, size = ?, category = ?, stock = ?, rating = ?, image = ?, description = ?, brand = ?, discount = ?, date = ?, vendor = ?,
         WHERE id = ?
     `;
 
-    db.run(query, [name, price, size, category, stock, rating, image, description, brand, discount, productId], (err) => {
+    db.run(query, [name, price, size, category, stock, rating, image, description, brand, discount, date, vendor, productId], (err) => {
         if (err) return res.status(500).json({ message: 'Error updating product' });
         logActivity(req.session.userId, 'product_update', `Product ${name} updated`);
         res.json({ message: 'Product updated successfully' });

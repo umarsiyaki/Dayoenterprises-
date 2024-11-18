@@ -119,7 +119,16 @@ app.get('/api/authorized', (req, res) => {
     res.status(401).send('Unauthorized');
   }
 });
+const app = express();
+const lb = require('load-balancer');
 
+app.use(lb());
+
+// Caching
+const cache = require('cache-manager');
+const cacheMiddleware = cache.cachingMiddleware;
+
+app.use(cacheMiddleware);
 // 5. CRUD Operations - Users
 app.get('/api/users', async (req, res) => {
   try {
@@ -240,9 +249,13 @@ app.get('/api/animate', (req, res) => {
   `);
 });
 
-const userRoutes = require('server/routes/userRoutes');
-const orderRoutes = require('server/routes/orderRoutes');
-const productRoutes = require('server/routes/productRoutes');
+const thirdPartyRiskRoutes = require('server/routes/thirdPartyRiskRoutes');
+const vulnerabilityRoute = require('server/routes/vulnerabilityRoute');
+const threatIntelRoute = require('server/routes/threatIntelRoute');
+
+const socialMediaRoutes = require('server/routes/socialMediaRoutes');
+
+const siemRoutes = require('server/routes/siemRoutes');
 
 const adminRoutes = require('server/routes/adminRoutes');
 const cashierRoutes = require('server/routes/cashierRoutes');
@@ -256,30 +269,35 @@ const shipingRoutes = require('server/routes/shipingRoutes');
 const messageRoutes = require('server/routes/message');
 const incidentRoutes = require('server/routes/incidentRoutes');
 const authRoutes = require('./routes/authRoutes');
-const productRoutes = require('./routes/productRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const userRoutes = require('./routes/userRoutes');
+const securityPolicyRoute = require('./routes/securityPolicyRoute');
+const reviewRoutes = require('./routes/reviewRoutes');
+const gcalendarapi = require('./routes/gcalendarapi');
 const disasterRecoveryRoute = require('./routes/disasterRecoveryRoute');
-const productRoutes = require('./routes/productRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const userRoutes = require('./routes/userRoutes');
-const auditLogRoute = require('./routes/auditLogRoute');
-const productRoutes = require('./routes/productRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const userRoutes = require('./routes/userRoutes');
+const securityAwarenessRoutes = require('./routes/securityAwarenessRoutes');
+const messageRoutes = require('./routes/messageRoutes');
+const endpointSecuritys = require('./routes/endpointSecurityRoutes');
+const auditLogs = require('./routes/auditLogRoute');
+const products = require('./routes/productRoutes');
+const incidentCommunications = require('./routes/incidentCommunicationRoutes');
+const users = require('./routes/userRoutes');
 
 app.use('/users', userRoutes);
 app.use('/orders', orderRoutes);
 app.use('/products', productRoutes);
 app.use('/login', loginRoutes);
+app.use('/endpointSecuritys', endpointSecurityRoutes);
 app.use('/register', registerRoutes);
+app.use('/threatIntelRoute', threatIntelRoute);
+app.use('/vulnerabilityRoute', vulnerabilityRoute);
+app.use('/thirdPartyRiskRoutes', thirdPartyRiskRoutes);
+
 app.use('/cart', cartRoutes);
 app.use('/analytics', analyticsRoutes);
 app.use('/incident', incidentRoutes);
 app.use('/shipping', shippingRoutes);
 app.use('/payment', paymentRoutes);
 app.use('/admin', adminRoutes);
-app.use('/incidentReport', incidentReportRoutes);
+app.use('/incidentReports', incidentReportRoutes);
 app.use('/message', messageRoutes);
 app.use('/notification', notificationRoutes);
 app.use('/auth', authRoutes);

@@ -439,6 +439,13 @@
         </ul>
     </section>
     
+    <!-- Product Cards Section -->
+    <section class="products">
+        <h2>Holandia Products</h2>
+        <!--  -->
+       <!-- Product Container -->
+       <div class="container">
+         <div class="row justify-content-center">
      <!-- Product Cards Section --><!-- Holandia Slim -->
 <div class="product-card" id="hol-001" data-category="energy" data-vendor="Holandia" data-supplier="Oladayo" data-price="6000" data-size="1L, 600ml">
 <img src="../images/hol-slim.png" alt="Holandia Slim" class="product-image">
@@ -455,7 +462,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -486,7 +493,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -517,7 +524,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -548,7 +555,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -579,7 +586,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -610,7 +617,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -642,7 +649,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -673,7 +680,7 @@
 <i class="fa-regular fa-star"></i>
 </div>
 <div class="product-actions">
-<button class="btn btn-primary" onclick="addToCart()">
+<button class="btn btn-primary add-to-cart-btn " onclick="addToCart()">
 <i class="fa-solid fa-shopping-cart"></i> Add to Cart
 </button>
 <button class="btn btn-secondary" onclick="addToWishlist()">
@@ -748,11 +755,25 @@
         </form>
     </div>
 
-    <!-- JavaScript -->
-    
-<script src="main.js"></script>
-<script src="script.js"></script>
-<script src="profile.js"></script>
+   
+ <!-- Including Jquery -->
+ <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+ <script src="assets/js/vendor/jquery.cookie.js"></script>
+ <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+ <script src="assets/js/vendor/wow.min.js"></script>
+ <!-- Including Javascript -->
+ <script src="assets/js/bootstrap.min.js"></script>
+ <script src="assets/js/plugins.js"></script>
+ <script src="assets/js/popper.min.js"></script>
+ <script src="assets/js/lazysizes.js"></script>
+ <script src="assets/js/main.js"></script>
+</div>
+    <script src="main.js"></script>
+    <script src="script.js"></script>
+    <script src="profile.js"></script>
     <script src="product.js"></script>
+    
+   <script src="dashboard/assets/js/cart.js"></script>
+   <script src="dashboard/assets/js/checkOut.js"></script>
 </body>
 </html>

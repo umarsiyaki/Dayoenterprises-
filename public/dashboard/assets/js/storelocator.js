@@ -15,3 +15,18 @@ function displayDirections(destination) {
     }
   });
 }
+const ContentRecommendation = () => {
+  const recommendations = useSelector((state) => state.recommendations);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h2>Recommended Content</h2>
+      <ul>
+        {recommendations.map((recommendation) => (
+          <li key={(link unavailable)}>{recommendation.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
