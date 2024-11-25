@@ -8,6 +8,112 @@ const rateLimiter = require('./config/iam');
 const ipBlockMiddleware = require('./middleware/ipBlockMiddleware');
 const { search, sort, getTimeZone, getCurrentDateTime } = require('./utils'); // Externalized utility functions
 const { themeOptions, socialMediaPlatforms } = require('./settings');
+const { 
+  sendRegistrationEmail, 
+  sendLoginEmail, 
+  sendPasswordResetEmail, 
+  sendOrderConfirmationEmail, 
+  sendOrderUpdateEmail, 
+  sendNewsletterEmail, 
+  sendNewProductEmail, 
+  sendProfileUpdateEmail 
+} = require('./utils/mailer');
+
+// Registration route
+app.post('/register', async (req, res) => {
+  const { name, email } = req.body;
+  // Register user logic...
+  await sendRegistrationEmail(email, { name });
+  res.send('Registered successfully!');
+});
+
+// Login route
+app.post('/login', async (req, res) => {
+  const { email } = req.body;
+  // Login logic...
+  await sendLoginEmail(email, { device: 'Desktop' });
+  res.send('Logged in successfully!');
+});
+
+// Password reset route
+app.post('/reset-password', async (req, res) => {
+  const { email } = req.body;
+  // Password reset logic...
+  await sendPasswordResetEmail(email, { token: '123456' });
+  res.send('Password reset link sent!');
+});
+
+// Order confirmation route
+app.post('/order', async (req, res) => {
+  const { email, orderId } = req.body;
+  // Order logic...
+  await sendOrderConfirmationEmail(email, { orderId });
+  res.send('Order confirmed!');
+});
+
+// Order update route
+app.put('/order/:id', async (req, res) => {
+  const { email, orderId } = req.body;
+  // Order update logic...
+  await sendOrderUpdateEmail(email, { orderId });
+  res.send('Order updated!');
+});
+
+// Newsletter subscription route
+app.post('/newsletter', async (req, res) => {
+  const { email } = req.body;
+  // Newsletter subscription logic...
+  await sendNewsletterEmail(email, { content: 'Hello from our newsletter!' });
+  res.send('Subscribed to newsletter!');
+});
+
+// New product notification route
+app.post('/new-product', async (req, res) => {
+  const { email, productName } = req.body;
+  // New product logic...
+  await sendNewProductEmail(email, { productName });
+  res.send('New product notification sent!');
+});
+
+// Profile update route
+app.put('/profile', async (req, res) => {
+  const { email } = req.body;
+  // Profile update logic...
+  await sendProfileUpdateEmail(email);
+  res.send('Profile updated!');
+});
+app.post('/reset-password', async (req, res) => {
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+        if (!user) {
+          return res.status(404).send('User not found');
+        }
+        const token = generateToken();
+        const resetLink = `(link unavailable);
+  await passwordResetEmail(email, { name: user.name, resetLink });
+  res.send('Password reset email sent!');
+});
+
+app.get('/reset-password/:token', async (req, res) => {
+  const token = req.params.token;
+  const user = await User.findOne({ resetToken: token });
+  if (!user) {
+    return res.status(404).send('Invalid token');
+  }
+  res.render('passwordReset', { token });
+});
+
+app.post('/reset-password/:token', async (req, res) => {
+  const token = req.params.token;
+  const { password } = req.body;
+  const user = await User.findOne({ resetToken: token });
+  if (!user) {
+    return res.status(404).send('Invalid token');
+  }
+  user.password = password;
+  await user.save();
+  res.send('Password reset successfully!');
+});
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

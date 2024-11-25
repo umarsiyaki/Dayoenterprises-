@@ -1,0 +1,30 @@
+
+API Endpoints:
+
+*User Endpoints*
+
+- POST /users - Create user
+- GET /users/:id - Get user by ID
+- PUT /users/:id - Update user
+- DELETE /users/:id - Delete user
+
+*Order Endpoints*
+
+- POST /orders - Create order
+- GET /orders/:id - Get order by ID
+- PUT /orders/:id - Update order
+- DELETE /orders/:id - Delete order
+
+*Product Endpoints*
+
+- POST /products - Create product
+- GET /products/:id - Get product by ID
+- PUT /products/:id - Update product
+- DELETE /products/:id - Delete product
+
+*Newsletter Endpoints*
+
+- POST /newsletters - Subscribe to newsletter
+- GET /newsletters/:id - Get newsletter by ID
+- PUT /newsletters/:id - Update newsletter
+- DELETE /newsletters/:id - Unsubscribe from newsletter

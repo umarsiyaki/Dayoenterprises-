@@ -1,67 +1,184 @@
-To address the absence of buyer-specific features, storage facilities, and advanced settings, I’ll provide a comprehensive implementation plan. Here's an enhanced version with **buyer tracking**, **persistent storage**, and **advanced settings**.
+    <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width">Login</h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+        
+        <div class="container">
+        	<div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
+                	<div class="mb-4">
+                       <form method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
+                          <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="CustomerEmail">Email</label>
+                                    <input type="email" name="customer[email]" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="CustomerPassword">Password</label>
+                                    <input type="password" value="" name="customer[password]" placeholder="" id="CustomerPassword" class="">                        	
+                                </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+                                <input type="submit" class="btn mb-3" value="Sign In">
+                                <p class="mb-4">
+									<a href="#" id="RecoverPassword">Forgot your password?</a> &nbsp; | &nbsp;
+								    <a href="register.html" id="customer_register_link">Create account</a>
+                                </p>
+                            </div>
+                         </div>
+                     </form>
+                     
+<!-- Biometric Authentication Button -->
+<button id="biometric-login" onclick="authenticateBiometric()">Login with Fingerprint</button>
+                    </div>
+               	</div>
+            </div>
+        </div>
+        
+    </div>
+    <!--End Body Content-->
+      
+      
+      this is for register.html
+      
+      
+    <!--Body Content-->
+    <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width">Create an Account</h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+      <div class="container signup-container">
+  <h2>Sign Up</h2>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
+      <div class="mb-4">
+        <form method="post" action="userCredentials.js" enctype="multipart/form-data" id="signup-form" accept-charset="UTF-8" class="contact-form">
+          <div class="row">
+            <!-- First Name -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="" autofocus="" required>
+                <span class="error-message" id="firstName-error"></span>
+              </div>
+            </div>
 
----
+            <!-- Middle Name -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="middleName">Middle Name</label>
+                <input type="text" id="middleName" name="middleName" placeholder="">
+              </div>
+            </div>
 
-### **Enhanced Requirements**
+            <!-- Last Name -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="" required>
+                <span class="error-message" id="lastName-error"></span>
+              </div>
+            </div>
 
-1. **Buyer Identification**:
-   - Assign a unique identifier for each buyer.
-   - Allow buyers to log in or register (basic implementation).
+            <!-- Email -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="" autocorrect="off" autocapitalize="off" required>
+                <span class="error-message" id="email-error"></span>
+              </div>
+            </div>
 
-2. **Persistent Storage**:
-   - Use `localStorage` or a backend API for storing cart data.
-   - Cart data should persist even after the page reloads or the user navigates to other pages.
+            <!-- Phone Number -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                <span class="error-message" id="phoneNumber-error"></span>
+              </div>
+            </div>
 
-3. **Advanced Features**:
-   - Tax, shipping, and promotional rules based on buyer location or preferences.
-   - Cart summary and history for tracking previous orders.
-   - Settings to manage:
-     - Cart capacity (e.g., max number of items).
-     - Automatic removal of inactive items.
-     - Vendor-specific settings.
+            <!-- Address -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+                <span class="error-message" id="address-error"></span>
+              </div>
+            </div>
 
----
+            <!-- Profile Picture -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="profilePic">Profile Picture</label>
+                <input type="file" id="profilePic" name="profilePic">
+              </div>
+            </div>
 
-### **Improved Implementation**
+            <!-- Password -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <span class="error-message" id="password-error"></span>
+              </div>
+            </div>
 
-#### **Back-End Setup (Optional for Advanced Storage)**
+            <!-- Confirm Password -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span class="error-message" id="confirmPassword-error"></span>
+              </div>
+            </div>
 
-- Use a backend API built with `Express.js` or similar.
-- Endpoints:
-  - `POST /cart` to save cart data.
-  - `GET /cart` to fetch cart data.
-  - `POST /login` to authenticate buyers.
+            <!-- NIN -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label for="nin">NIN</label>
+                <input type="text" id="nin" name="nin">
+              </div>
+            </div>
 
-#### **Full-Featured JavaScript Implementation**
+            <!-- Submit Button -->
+            <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+              <button type="submit" class="btn mb-3" id="signup-btn">Sign Up</button>
+            </div>
+          </div>
+        </form>
+        
 
-```javascript
-```
+<!-- MFA Modal -->
+<div id="mfaModal" class="modal">
+    <div class="modal-content">
+        <h4>Multi-Factor Authentication</h4>
+        <input type="text" id="mfaCode" placeholder="Enter MFA code">
+        <button onclick="verifyMFA()">Verify MFA</button>
+    </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
 
----
-
-### **New Additions**
-
-1. **Buyer Tracking**:
-   - Each buyer gets a unique `buyerId` stored in `localStorage`.
-
-2. **Persistent Storage**:
-   - Cart data is saved in `localStorage` with a buyer-specific key (e.g., `cart_buyer_123`).
-
-3. **Advanced Settings**:
-   - Promo code management.
-   - Shipping rules based on cart items.
-   - Tax applied dynamically.
-
-4. **Scalability**:
-   - Easily integrates with a backend API for real-time sync across devices.
-
----
-
-### **Suggested Enhancements**
-To go further:
-- **Add Authentication**: Allow buyers to log in and fetch saved carts.
-- **Implement Wishlist and Compare**: Expand the current design to handle these features.
-- **Backend Database**: Use SQL or NoSQL to store cart data securely.
-- **Real-Time Updates**: Use WebSockets for live cart updates.
-
-Let me know if you'd like to proceed with these enhancements!
+    <!--End Body Content-->
+    
+    to do: add form validation, 
+    create a single relationship actions file for form submitting name it formSubmitting.html therein, all form of the server are submited and processed to the database.
+    collect all user data and store all in the user device and database and the send it to user-list.html from server to the page plus user-table in admin.
+    
+    
