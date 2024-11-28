@@ -100,3 +100,100 @@ document.getElementById('submit-products').addEventListener('click', function() 
     })
     .catch(err => console.error('Error:', err));
 });
+document.getElementById('fetch-products-btn').addEventListener('click', function() {
+  fetch('/api/fetchProducts')
+    .then(response => response.json())
+    .then(products => {
+      const tableBody = document.querySelector('#product-list tbody');
+      tableBody.innerHTML = ''; // Clear existing table
+
+      products.forEach(product => {
+        const row = `<tr>
+                    <td>${product.product_name}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.price.toFixed(2)}</td>
+                    <td>${product.discount.toFixed(2)}</td>
+                    <td>${product.total.toFixed(2)}</td>
+                </tr>`;
+        tableBody.innerHTML += row;
+      });
+
+      // Update the grand total
+      const grandTotal = products.reduce((acc, product) => acc + parseFloat(product.total), 0);
+      document.getElementById('grand-total').textContent = grandTotal.toFixed(2);
+    })
+    .catch(err => console.error('Error:', err));
+});
+let currentValue = ''; // to store digits
+let currentOperation = true; // to store selected operation
+
+document.querySelectorAll('#digit-buttons button').forEach(button => {
+  button.addEventListener('click', function() {
+    currentValue += this.getAttribute('data-value');
+    updateDisplay(currentValue);
+  });
+});
+
+document.querySelectorAll('#arithmetic-symbols button').forEach(button => {
+  button.addEventListener('click', function() {
+    if (this.id !== 'equals-btn' && this.id !== 'clear-btn') {
+      currentOperation = this.textContent;
+      currentValue += ' ' + currentOperation + ' ';
+      updateDisplay(currentValue);
+    } else if (this.id === 'clear-btn') {
+      resetCalculator();
+    } else {
+      // Perform calculation when equals is pressed
+      performCalculation();
+    }
+  });
+});
+
+// Function to update the display
+function updateDisplay(value) {
+  document.getElementById('display-total-price').textContent = value;
+}
+
+// Function to reset the calculator
+function resetCalculator() {
+  currentValue = '';
+  currentOperation = null;
+  updateDisplay('');
+}
+
+// Function to perform the calculation
+function performCalculation() {
+  try {
+    let result = eval(currentValue); // Be cautious with eval in a real-world app
+    currentValue = result.toString();
+    updateDisplay(result);
+  } catch (e) {
+    alert('Error in calculation');
+  }
+}
+
+// Event listener for product-specific calculations
+document.getElementById('submit-calculator').addEventListener('click', function() {
+  const quantity = parseFloat(document.getElementById('calculator-quantity').value);
+  const price = parseFloat(document.getElementById('calculator-price').value);
+  const discount = parseFloat(document.getElementById('calculator-discount').value);
+
+  // Validation
+  if (isNaN(quantity) || quantity <= 0 || isNaN(price) || price <= 0) {
+    alert('Please enter valid quantity and price.');
+    return;
+  }
+  if (isNaN(discount) || discount < 0 || discount > 100) {
+    alert('Please enter a valid discount between 0 and 100.');
+    return;
+  }
+
+  // Calculation
+  let totalPrice = quantity * price;
+  if (discount > 0) {
+    totalPrice -= totalPrice * (discount / 100);
+  }
+
+  // Update the display
+  document.getElementById('display-total-price').textContent = totalPrice.toFixed(2);
+});

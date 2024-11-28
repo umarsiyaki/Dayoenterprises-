@@ -7,35 +7,391 @@ Index.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Oladayo Enterprises - Leading supplier of top-quality beverages">
     <title>Oladayo Enterprises</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
+<!-- Favicon -->
+<link rel="shortcut icon" href="assets/images/favicon.png" />
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="assets/css/plugins.css">
+<!-- Bootstap CSS -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<!-- Main Style CSS -->
+<link rel="stylesheet" href="../class=../product/assets/css/style.css">
+<link rel="stylesheet" href="../product/assets/css/responsive.css">
 </head>
-<body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="#" class="logo">Oladayo Enterprises</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#mission">Our Mission</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#newsletter">Newsletter</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                </ul>
-                <div class="search-cart">
-                    <input type="text" placeholder="Search products...">
-                    <a href="#" class="cart-icon">Cart (0)</a>
-                </div>
-                <div class="hamburger-menu">
-                    <!-- For Mobile Menu -->
-                    <div class="bar"></div>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body class="template-product belle">
+<!--Mobile Menu-->
+<div class="mobile-nav-wrapper" role="navigation">
+<div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
+<ul id="MobileNav" class="mobile-nav">
+<li class="lvl1 parent megamenu"><a href="index.html">Home <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="index.html" class="site-nav">Home 1 - Classic</a></li>
+<li><a href="account-management.html" class="site-nav">Account Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="blog-management.html">Blog <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="blog-management.html" class="site-nav">Blog Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="#">Analytics <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="analytics.html" class="site-nav">Analytics</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="admin.html">Admin <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="admin.html" class="site-nav">Admin Dashboard</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="cashier.html">Cashier <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="cashier.html" class="site-nav">Cashier</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="calculator.html">Calculator <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="calculator.html" class="site-nav">Calculator</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="calendar.html">Calendar <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="calendar.html" class="site-nav">Calendar</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="chat.html">Chat <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="chat.html" class="site-nav">Chat</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="customer.html">Customer <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="customer.html" class="site-nav">Customer</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="employee-management.html">Employee Management <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="employee-management.html" class="site-nav">Employee Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="settings.html">Settings <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="settings.html" class="site-nav">Settings</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="user-management.html">User Management <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="user-management.html" class="site-nav">User Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="inventory.html">Inventory <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="inventory.html" class="site-nav">Inventory</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="inventory-report.html">Inventory Report <i class="anm anm-plus-l"></i></a>
+<ul>
+
+
+<li class="lvl1 parent megamenu"><a href="supplier-management.html">Supplier Management <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="supplier-management.html" class="site-nav">Supplier Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="tax-management.html">Tax Management <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="tax-management.html" class="site-nav">Tax Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="update-inventory.html">Update Inventory <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="update-inventory.html" class="site-nav">Update Inventory</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="order.html">Order <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="order.html" class="site-nav">Order</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="payroll-management.html">Payroll Management <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="payroll-management.html" class="site-nav">Payroll Management</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="pos.html">POS <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="pos.html" class="site-nav">POS</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="product.html">Product <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="product.html" class="site-nav">Product</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="report.html">Report <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="report.html" class="site-nav">Report</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="sales-report.html">Sales Report <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="sales-report.html" class="site-nav">Sales Report</a></li>
+</ul>
+</li>
+<li class="lvl1 parent megamenu"><a href="sales.html">Sales <i class="anm anm-plus-l"></i></a>
+<ul>
+<li><a href="sales.html" class="site-nav">Sales</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!--End Mobile Menu-->
+
+
+
+<!--Desktop Menu-->
+<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
+<ul id="siteNav" class="site-nav medium center hidearrow">
+<li class="lvl1 parent megamenu"><a href="index.html">Home <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style1">
+<ul class="grid mmWrapper">
+<li class="grid__item large-up--one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="index.html" class="site-nav lvl-1">Home 1 - Classic</a></li>
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="account-management.html" class="site-nav lvl-1">Account Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="blog-management.html">Blog <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style2">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="blog-management.html" class="site-nav lvl-1">Blog Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="#">Analytics <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style3">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="analytics.html" class="site-nav lvl-1">Analytics</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="admin.html">Admin <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style4">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="admin.html" class="site-nav lvl-1">Admin Dashboard</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="cashier.html">Cashier <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style5">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="cashier.html" class="site-nav lvl-1">Cashier</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="calculator.html">Calculator <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style6">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="calculator.html" class="site-nav lvl-1">Calculator</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="calendar.html">Calendar <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style7">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="calendar.html" class="site-nav lvl-1">Calendar</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="chat.html">Chat <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style8">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="chat.html" class="site-nav lvl-1">Chat</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="customer.html">Customer <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style9">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="customer.html" class="site-nav lvl-1">Customer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="employee-management.html">Employee Management <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style10">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="employee-management.html" class="site-nav lvl-1">Employee Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="settings.html">Settings <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style11">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="settings.html" class="site-nav lvl-1">Settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li class="lvl1 parent megamenu"><a href="user-management.html">User Management <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style12">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="user-management.html" class="site-nav lvl-1">User Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="inventory.html">Inventory <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style13">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="inventory.html" class="site-nav lvl-1">Inventory</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="inventory-report.html">Inventory Report <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style14">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="inventory-report.html" class="site-nav lvl-1">Inventory Report</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="order.html">Order <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style15">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="order.html" class="site-nav lvl-1">Order</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="payroll-management.html">Payroll Management <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style16">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="payroll-management.html" class="site-nav lvl-1">Payroll Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="pos.html">POS <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style17">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="pos.html" class="site-nav lvl-1">POS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="product.html">Product <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style18">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="product.html" class="site-nav lvl-1">Product</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="report.html">Report <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style19">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="report.html" class="site-nav lvl-1">Report</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="sales-report.html">Sales Report <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style20">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+
+
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="sales-report.html" class="site-nav lvl-1">Sales Report</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="lvl1 parent megamenu"><a href="sales.html">Sales <i class="anm anm-angle-down-l"></i></a>
+<div class="megamenu style21">
+<ul class="grid mmWrapper">
+<li class="grid__item one-whole">
+<ul class="grid">
+<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="sales.html" class="site-nav lvl-1">Sales</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</nav>
+<!--End Desktop Menu-->
+
 
     <!-- Hero Section / Slideshow -->
     <section id="home" class="hero">

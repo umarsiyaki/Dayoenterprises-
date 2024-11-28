@@ -1,0 +1,518 @@
+// Profit & Loss Calculator
+var calculator = document
+    .getElementById('calculator-profit-n-loss')
+    .addEventListener('click', profit_N_loss);
+
+var refresh_calculator = document
+    .getElementById('refresh-calculator')
+    .addEventListener('click', refresh_calc);
+
+function refresh_calc() {
+    location.reload();
+}
+
+function profit_N_loss(income_raw, loss_raw) {
+    var income_raw = document.getElementById('input-sales').value;
+    var loss_raw = document.getElementById('input-losses').value;
+
+    income = parseInt(income_raw);
+    loss = parseInt(loss_raw);
+    var value = income - loss;
+
+    var result_div = document.getElementById('profit-n-loss-result');
+    result_div.classList.remove('d-none');
+    if (value > 0) {
+        result_div.innerHTML = 'Your profit is $ ' + value;
+    } else {
+        result_div.innerHTML = 'Your loss is $ ' + value;
+    }
+}
+.greyed {
+    background-color: #f8f9fa;
+}
+
+.spacer-0 {
+    margin: 2rem 0;
+}
+
+.spacer-2 {
+    margin: 3.2rem 0;
+}https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css
+
+
+
+.   ```
+
+   **JavaScript**:
+   ```javascript
+   
+   ```
+
+### 2. **Tax Calculation**
+   - Add functionality to calculate taxes on the total amount based on the product's price or regional tax rates.
+
+   **Implementation**:
+   - Add an input field for tax rate and modify the final calculation to include tax.
+
+   ```html
+   <div class="form-group">
+       <label for="tax">Tax Rate (%):</label>
+       <input type="number" id="tax" name="tax">
+   </div>
+   ```
+
+   **JavaScript**:
+   ```javascript
+   const taxRate = parseFloat(document.getElementById('tax').value);
+   const totalWithTax = grandTotal + (grandTotal * (taxRate / 100));
+   document.getElementById('grand-total').textContent = totalWithTax.toFixed(2);
+   ```
+
+### 3. **Real-Time Currency Conversion**
+   - Allow users to select a currency, and the system will automatically convert product prices to the selected currency using real-time exchange rates.
+
+   **Implementation**:
+   - Integrate a currency conversion API and display updated prices and totals based on the selected currency.
+
+   ```html
+   ```
+
+   **JavaScript**:
+   - Use a currency API (e.g., OpenExchangeRates) to fetch real-time conversion rates and apply them to the product prices.
+
+### 4. **Product Grouping by Category**
+   - Allow users to categorize products into different groups (e.g., Electronics, Groceries) for better organization.
+
+   **Implementation**:
+   - Add a category input field, and display the products grouped by categories in the product list.
+
+   ```html
+   
+   <div class="form-group">
+       <label for="currency">Currency:</label>
+       <select id="currency">
+           <option value="USD">USD</option>
+           <option value="EUR">EUR</option>
+           <option value="GBP">GBP</option>
+       </select>
+   </div>
+   <div class="form-group">
+       <label for="category">Category:</label>
+       <input type="text" id="category" name="category">
+   </div>
+   ```
+
+   **JavaScript**:
+   - Implement the logic to edit or delete a product from the `products` array and update the displayed list and grand total dynamically.
+
+### 6. **Product History with Session Persistence**
+   - Store the user's product history using session storage or local storage so that users can return to their previous calculations even after closing the browser.
+
+   **Implementation**:
+   ```javascript
+   window.addEventListener('beforeunload', () => {
+       localStorage.setItem('productHistory', JSON.stringify(products));
+   });
+
+   window.addEventListener('load', () => {
+       const storedProducts = JSON.parse(localStorage.getItem('productHistory'));
+       if (storedProducts) {
+           products = storedProducts;
+           updateProductList();
+           updateGrandTotal();
+       }
+   });
+   ```
+
+### 7. **Inventory Management System Integration**
+   - Integrate with an inventory management system to automatically update stock levels when a product is added, updated, or deleted from the calculator.
+
+   **Implementation**:
+   - Fetch stock data from an inventory API and alert users if the requested quantity exceeds available stock.
+
+   ```javascript
+   fetch('/api/inventory?product=' + productName)
+       .then(response => response.json())
+       .then(stock => {
+           if (quantity > stock.available) {
+               alert('Not enough stock available!');
+               return;
+           }
+           // Proceed with adding the product
+       });
+   ```
+
+### 8. **User Authentication and Profiles**
+   - Implement user authentication so users can save their product lists, history, and preferences. Different users will have their own product histories and settings.
+
+   **Implementation**:
+   - Use a user authentication system (JWT, OAuth) and tie product data to individual users in the SQL database.
+
+   ```javascript
+   // Use JWT to authenticate users and fetch their saved product lists
+   fetch('/api/userProducts', {
+       headers: {
+           'Authorization': 'Bearer ' + localStorage.getItem('token')
+       }
+   })
+   .then(response => response.json())
+   .then(userProducts => {
+       // Load user-specific product lists
+   });
+   ```
+
+### 9. **Bulk Import/Export via CSV**
+   - Allow users to import products from a CSV file or export their product list to a CSV file for external use or backup.
+
+   **Implementation**:
+   - Use the `FileReader` API to read CSV files and display the imported products in the list.
+
+   ```html
+
+   ```
+
+   **JavaScript**:
+   - Implement functionality to parse the CSV file and load it into the product list.
+   - Add functionality to generate a CSV file from the current product list and prompt users to download it.
+
+### 10. **Advanced Analytics and Reporting**
+   - Implement a reporting feature to analyze and visualize product data, such as the most frequent products, highest total sales, or savings from discounts.
+
+   **Implementation**:
+   - Fetch and display analytical data from the SQL database using visual charts (e.g., Chart.js or D3.js).
+
+   ```html
+   <div id="report-section">
+       <h3>Sales Report</h3>
+       <canvas id="sales-chart"></canvas>
+   </div>
+   ```
+
+   **JavaScript**:
+   - Use Chart.js to visualize product sales and other metrics based on stored data.
+
+   ```javascript
+   const ctx = document.getElementById('sales-chart').getContext('2d');
+   new Chart(ctx, {
+       type: 'bar',
+       data: {
+           labels: ['Product A', 'Product B'],
+           datasets: [{
+               label: 'Total Sales',
+               data: [500, 300],
+               backgroundColor: ['#FF6384', '#36A2EB']
+           }]
+       }
+   });
+   ```
+
+---
+
+### Summary of Features:
+1. **Advanced Discount Types (Percentage or Fixed)**
+2. **Tax Calculation**
+3. **Real-Time Currency Conversion**
+4. **Product Grouping by Category**
+5. **Editable Product List**
+6. **Product History with Session Persistence**
+7. **Inventory Management System Integration**
+8. **User Authentication and Profiles**
+9. **Bulk Import/Export via CSV**
+10. **Advanced Analytics and Reporting**
+
+Each of these features will add significant value and utility to the product calculator, making it robust and suitable for a wide range of real-world use cases. Let me know which ones you'd like to prioritize, and we can implement them one by one!To extend the product calculator even further, we can add multiple advanced functionalities and features. These will enhance both the user experience and the overall capabilities of the system. Below are **10 additional functionalities and features**:
+
+### 1. **Advanced Discount Types (Fixed Amount & Percentage)**
+   - Allow users to apply either a fixed amount discount or a percentage-based discount for each product.
+
+   **Implementation**:
+   - Add a dropdown for discount type (Percentage or Fixed) and adjust the calculation logic based on the selection.
+
+   ```html
+   <div class="form-group">
+       <label for="discount-type">Discount Type:</label>
+       <select id="discount-type">
+           <option value="percentage">Percentage (%)</option>
+           <option value="fixed">Fixed Amount</option>
+       </select>
+   </div>
+   ```
+
+   **JavaScript**:
+   ```javascript
+   const discountType = document.getElementById('discount-type').value;
+   let productTotal = quantity * price;
+   if (discountType === 'percentage') {
+       productTotal -= productTotal * (discount / 100);
+   } else if (discountType === 'fixed') {
+       productTotal -= discount;
+   }
+   ```
+
+### 2. **Tax Calculation**
+   - Add functionality to calculate taxes on the total amount based on the product's price or regional tax rates.
+
+   **Implementation**:
+   - Add an input field for tax rate and modify the final calculation to include tax.
+
+   ```html
+   <div class="form-group">
+       <label for="tax">Tax Rate (%):</label>
+       <input type="number" id="tax" name="tax">
+   </div>
+   ```
+
+   **JavaScript**:
+   ```javascript
+   const taxRate = parseFloat(document.getElementById('tax').value);
+   const totalWithTax = grandTotal + (grandTotal * (taxRate / 100));
+   document.getElementById('grand-total').textContent = totalWithTax.toFixed(2);
+   ```
+
+### 3. **Real-Time Currency Conversion**
+   - Allow users to select a currency, and the system will automatically convert product prices to the selected currency using real-time exchange rates.
+
+   **Implementation**:
+   - Integrate a currency conversion API and display updated prices and totals based on the selected currency.
+
+   ```html
+   <div class="form-group">
+       <label for="currency">Currency:</label>
+       <select id="currency">
+           <option value="USD">USD</option>
+           <option value="EUR">EUR</option>
+           <option value="GBP">GBP</option>
+       </select>
+   </div>
+   ```
+
+   **JavaScript**:
+   - Use a currency API (e.g., OpenExchangeRates) to fetch real-time conversion rates and apply them to the product prices.
+
+### 4. **Product Grouping by Category**
+   - Allow users to categorize products into different groups (e.g., Electronics, Groceries) for better organization.
+
+   **Implementation**:
+   - Add a category input field, and display the products grouped by categories in the product list.
+
+   ```html
+   <div class="form-group">
+       <label for="category">Category:</label>
+       <input type="text" id="category" name="category">
+   </div>
+   ```
+
+   **JavaScript**:
+   - Group the products array by category and update the product table accordingly.
+
+### 5. **Editable Product List**
+   - Allow users to edit or delete individual products in the list after adding them, providing greater flexibility in managing the products.
+
+   **Implementation**:
+   - Add "Edit" and "Delete" buttons next to each product in the product list.
+
+   ```html
+   <td><button class="edit-btn">Edit</button></td>
+   <td><button class="delete-btn">Delete</button></td>
+   ```
+
+   **JavaScript**:
+   - Implement the logic to edit or delete a product from the `products` array and update the displayed list and grand total dynamically.
+
+### 6. **Product History with Session Persistence**
+   - Store the user's product history using session storage or local storage so that users can return to their previous calculations even after closing the browser.
+
+   **Implementation**:
+   ```javascript
+   window.addEventListener('beforeunload', () => {
+       localStorage.setItem('productHistory', JSON.stringify(products));
+   });
+
+   window.addEventListener('load', () => {
+       const storedProducts = JSON.parse(localStorage.getItem('productHistory'));
+       if (storedProducts) {
+           products = storedProducts;
+           updateProductList();
+           updateGrandTotal();
+       }
+   });
+   ```
+
+### 7. **Inventory Management System Integration**
+   - Integrate with an inventory management system to automatically update stock levels when a product is added, updated, or deleted from the calculator.
+
+   **Implementation**:
+   - Fetch stock data from an inventory API and alert users if the requested quantity exceeds available stock.
+
+   ```javascript
+   fetch('/api/inventory?product=' + productName)
+       .then(response => response.json())
+       .then(stock => {
+           if (quantity > stock.available) {
+               alert('Not enough stock available!');
+               return;
+           }
+           // Proceed with adding the product
+       });
+   ```
+
+### 8. **User Authentication and Profiles**
+   - Implement user authentication so users can save their product lists, history, and preferences. Different users will have their own product histories and settings.
+
+   **Implementation**:
+   - Use a user authentication system (JWT, OAuth) and tie product data to individual users in the SQL database.
+
+   ```javascript
+   // Use JWT to authenticate users and fetch their saved product lists
+   fetch('/api/userProducts', {
+       headers: {
+           'Authorization': 'Bearer ' + localStorage.getItem('token')
+       }
+   })
+   .then(response => response.json())
+   .then(userProducts => {
+       // Load user-specific product lists
+   });
+   ```
+
+### 9. **Bulk Import/Export via CSV**
+   - Allow users to import products from a CSV file or export their product list to a CSV file for external use or backup.
+
+   **Implementation**:
+   - Use the `FileReader` API to read CSV files and display the imported products in the list.
+
+   ```html
+ 
+  
+
+   **JavaScript**:
+   - Implement functionality to parse the CSV file and load it into the product list.
+   - Add functionality to generate a CSV file from the current product list and prompt users to download it.
+
+### 10. **Advanced Analytics and Reporting**
+   - Implement a reporting feature to analyze and visualize product data, such as the most frequent products, highest total sales, or savings from discounts.
+
+   **Implementation**:
+   - Fetch and display analytical data from the SQL database using visual charts (e.g., Chart.js or D3.js).
+
+   ```html
+ 
+  
+```
+</head>
+<body>
+<!-- Product Calculator HTML -->
+<div id="calculator-section" class="product-calc">
+<div class="calculator-section">
+<!-- Digit Buttons -->
+<div id="digit-buttons">
+<button type="button" data-value="0">0</button>
+<button type="button" data-value="1">1</button>
+<button type="button" data-value="2">2</button>
+<button type="button" data-value="3">3</button>
+<button type="button" data-value="4">4</button>
+<button type="button" data-value="5">5</button>
+<button type="button" data-value="6">6</button>
+<button type="button" data-value="7">7</button>
+<button type="button" data-value="8">8</button>
+<button type="button" data-value="9">9</button>
+</div>
+<!-- Arithmetic Symbols -->
+<div id="arithmetic-symbols">
+<button type="button" id="add-btn">+</button>
+<button type="button" id="subtract-btn">-</button>
+<button type="button" id="multiply-btn">*</button>
+<button type="button" id="divide-btn">/</button>
+<button type="button" id="equals-btn">=</button>
+<button type="button" id="clear-btn">C</button>
+</div>
+<!-- Product Inputs -->
+<div class="form-group">
+<label for="product-name">Product Name:</label>
+<input type="text" id="calculator-product-name" name="productName">
+</div>
+<div class="form-group">
+<label for="quantity">Quantity:</label>
+<input type="number" id="calculator-quantity" name="quantity">
+</div>
+<div class="form-group">
+<label for="price">Price per Unit:</label>
+<input type="number" id="calculator-price" name="price">
+</div>
+<div class="form-group">
+<label for="discount">Discount (%):</label>
+<input type="number" id="calculator-discount" name="discount">
+</div>
+<!-- Display Calculation Results -->
+<div id="input-display">
+<p>Total Price (after Discount): <span id="display-total-price"></span></p>
+</div>
+<button type="button" id="submit-calculator">Calculate</button>
+</div>
+</div>
+
+
+<!-- Profit & Loss Calculator HTML -->
+<div class="profit-n-loss-calc">
+    <div class="form-group">
+        <label for="sales">Amount of Sales ($):</label>
+        <input type="number" id="input-sales" name="sales">
+    </div>
+    <div class="form-group">
+        <label for="losses">Amount of Losses ($):</label>
+        <input type="number" id="input-losses" name="losses">
+    </div>
+    <div id="profit-n-loss-result">
+        <p>Profit/Loss: <span id="display-profit-loss"></span></p>
+    </div>
+    <button type="button" id="calculator-profit-n-loss">Calculate</button>
+    <button type="button" id="refresh-calculator">Refresh</button>
+</div>
+```
+</div>
+
+<script>
+// Product Calculator JavaScript
+const calculatorForm = document.getElementById('calculator-form');
+const submitButton = document.getElementById('submit-calculator');
+const productNameInput = document.getElementById('calculator-product-name');
+const quantityInput = document.getElementById('calculator-quantity');
+const priceInput = document.getElementById('calculator-price');
+const discountInput = document.getElementById('calculator-discount');
+const totalPriceDisplay = document.getElementById('display-total-price');
+
+submitButton.addEventListener('click', calculateTotalPrice);
+
+function calculateTotalPrice() {
+    const productName = productNameInput.value;
+    const quantity = parseInt(quantityInput.value);
+    const price = parseFloat(priceInput.value);
+    const discount = parseFloat(discountInput.value);
+
+    const totalPrice = (price * quantity) - (price * quantity * discount / 100);
+    totalPriceDisplay.textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+// Profit & Loss Calculator JavaScript
+const profitLossForm = document.getElementById('profit-loss-form');
+const profitLossButton = document.getElementById('calculator-profit-n-loss');
+const salesInput = document.getElementById('input-sales');
+const lossesInput = document.getElementById('input-losses');
+const profitLossDisplay = document.getElementById('display-profit-loss');
+
+profitLossButton.addEventListener('click', calculateProfitLoss);
+
+function calculateProfitLoss() {
+    const sales = parseFloat(salesInput.value);
+    const losses = parseFloat(lossesInput.value);
+
+    const profitLoss = sales - losses;
+    profitLossDisplay.textContent = `$${profitLoss.toFixed(2)}`;
+}
+```
+</script>
+</body>
+</html>
+```
+This code creates a product calculator and a profit and loss calculator. The product calculator calculates the total price of a product based on the quantity, price, and discount. The profit and loss calculator calculates the profit or loss based on the sales and losses.
+```

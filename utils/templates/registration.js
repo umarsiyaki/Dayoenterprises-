@@ -26,43 +26,8 @@ const registerEmail = (data) => {
   `;
 };
 
-module.exports = registerEmail;
-```
-
-*Login from Unknown Phone Template ()*
-```
-
-```
-
-*Profile Change Template (profileChangeEmail.js)*
-```
 
 
-```
-
-_Newsletter Template (
-```
-
-_New Product Arrival Template (newProductEmail.js)_
-```
-
-```
-
-Images:
-
-- logo.png (company logo)
-- user.jpg (user image)
-- alert.jpg (alert image)
-- product1.jpg, product2.jpg, ... (product images)
-
-CSS (email.css):
-
-```
-
-
-Email Template Usage:
-
-```
 const { sendEmail } = require('./mailer');
 const orderEmail = require('./emailTemplates/orderEmail');
 
@@ -98,49 +63,19 @@ sendEmail('john.doe@example.com', 'Order Confirmation', orderEmail, orderData);
 const passwordResetEmail = async (to, data) => {
   await sendEmail(to, 'Password Reset', 'passwordReset', data);
 };
-// ...
-```
-
-**
-```
-handlebars
-```
-
-*app.js*
-```
-// ...
-
-// ...
-```
-
-*password recovery HTML template* (unchanged)
-```
-<!-- ... -->
-```
-
-*Additional Features*
-
-1. *Password reset functionality*: Implemented.
-2. *Email verification upon registration*: Added.
-```
 app.post('/register', async (req, res) => {
   // ...
   const verificationToken = generateToken();
-  const verificationLink = `(link unavailable);
+  const verificationLink = (link unavailable);
   await verificationEmail(email, { name, verificationLink });
   // ...
 });
-```
 
-1. *Unsubscribe link in newsletters*: Added.
-```
-handlebars
-<!-- newsletter.handlebars -->
-<p>To unsubscribe, click this link: <a href="{{unsubscribeLink}}">Unsubscribe</a></p>
-```
 
-1. *Order status updates*: Implemented.
-```
+
+
+//1. *Order status updates*: Implemented.
+
 app.patch('/orders/:id/status', async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
@@ -149,10 +84,10 @@ app.patch('/orders/:id/status', async (req, res) => {
   await order.save();
   res.send('Order status updated!');
 });
-```
 
-1. *Product reviews and ratings*: Implemented.
-```
+
+//1. *Product reviews and ratings*: Implemented.
+
 app.post('/products/:id/reviews', async (req, res) => {
   const { id } = req.params;
   const { rating, review } = req.body;
@@ -161,10 +96,10 @@ app.post('/products/:id/reviews', async (req, res) => {
   await product.save();
   res.send('Review added!');
 });
-```
 
-1. *User profile picture upload*: Implemented.
-```
+
+//1. *User profile picture upload*: Implemented.
+
 app.post('/users/:id/profile-picture', async (req, res) => {
   const { id } = req.params;
   const { image } = req.body;
@@ -173,29 +108,29 @@ app.post('/users/:id/profile-picture', async (req, res) => {
   await user.save();
   res.send('Profile picture updated!');
 });
-```
 
-1. *Admin dashboard*: Implemented.
-```
+
+//1. *Admin dashboard*: Implemented.
+
 app.get('/admin', async (req, res) => {
   const users = await User.find();
   const orders = await Order.find();
   const products = await Product.find();
   res.render('adminDashboard', { users, orders, products });
 });
-```
 
-1. *Search functionality for products*: Implemented.
-```
+
+//1. *Search functionality for products*: Implemented.
+
 app.get('/products/search', async (req, res) => {
   const { query } = req.query;
   const products = await Product.find({ name: { $regex: query, $options: 'i' } });
   res.render('searchResults', { products });
 });
-```
 
-1. *Product categories and subcategories*: Implemented.
-```
+
+//1. *Product categories and subcategories*: Implemented.
+
 app.get('/products/categories', async (req, res) => {
   const categories = await Category.find();
   res.render('productCategories', { categories });
@@ -206,12 +141,8 @@ app.get('/products/categories/:id', async (req, res) => {
   const category = await Category.findById(id);
   const products = await Product.find({ category });
   res.render('product
-```
-[11/21, 17:16] Meta AI: Here's the rest of the code:
 
-_Product categories and subcategories_
 
-```
 app.get('/products/categories/:id', async (req, res) => {
   const { id } = req.params;
   const category = await Category.findById(id);
@@ -240,11 +171,11 @@ app.delete('/products/categories/:id', async (req, res) => {
   await Category.findByIdAndDelete(id);
   res.send('Category deleted!');
 });
-```
+
 
 _Database schema updates_
 
-```
+
 CREATE TABLE categories (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255)
@@ -264,21 +195,21 @@ CREATE TABLE product_categories (
   FOREIGN KEY (product_id) REFERENCES products(id),
   FOREIGN KEY (category_id) REFERENCES categories(id)
 );
-```
+
 
 _Search functionality for products_
 
-```
+
 app.get('/products/search', async (req, res) => {
   const { query } = req.query;
   const products = await Product.find({ name: { $regex: query, $options: 'i' } });
   res.render('searchResults', { products });
 });
-```
+
 
 _Order sorting and filtering_
 
-```
+
 app.get('/orders', async (req, res) => {
   const { sort, filter } = req.query;
   const orders = await Order.find();
@@ -290,7 +221,7 @@ app.get('/orders', async (req, res) => {
   }
   res.render('orders', { orders });
 });
-```
+
 
 This completes the implementation of the email service with the additional features.
 
